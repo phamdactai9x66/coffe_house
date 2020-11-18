@@ -23,7 +23,15 @@ function find_product_equal_name($searching,$searching2){
     WHERE name_EN like '%$searching%' or name_VN like '%$searching2%'";
     return select_all($sql);
 }
-
-echo "<pre>";
-print_r(find_product_equal_name("sanpham 1","sanpham 1"));
-echo "</pre>";
+function list_cate(){
+    $sql="SELECT `id_cate`, `name_EN`, `name_VN` FROM `category` WHERE 1";
+    return select_all($sql);
+}
+function quantily_cate(){
+    $sql="SELECT COUNT(id_cate) FROM `category` WHERE 1";
+    return select_value($sql);
+}
+// echo quantily_cate();
+// echo "<pre>";
+// print_r(list_cate());
+// echo "</pre>";
