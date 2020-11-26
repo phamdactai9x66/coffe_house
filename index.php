@@ -1,2 +1,2 @@
 <?php
-//    echo "xin chao";
+header("location: admin/main_page");
