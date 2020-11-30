@@ -48,40 +48,11 @@
               
                 ?>
             </div>
-            <div class="row_analysis">
-                    <div >
-                      <div class="flex_row_analysis">
-                        <span class="box1"><i class="far fa-comments"></i></span>
-                        <p><label for="">comment</label> <br>
-                            <label class="font_ad"><span>10</span><span>%</span></label>
-                        </p>
-                      </div>
-                    </div>
-                    <div >
-                       <div class="flex_row_analysis">
-                        <span class="box2"><i class="far fa-eye"></i></span>
-                        <p><label for="">view</label> <br>
-                            <label class="font_ad"><span>10</span><span>%</span></label>
-                        </p>
-                       </div>
-                    </div>
-                    <div >
-                        <div class="flex_row_analysis">
-                            <span class="box3"><i class="fas fa-shopping-cart"></i></span>
-                        <p><label for="">cart</label> <br>
-                            <label class="font_ad"><span>10</span><span>%</span></label>
-                        </p>
-                        </div>
-                    </div>
-                    <div >
-                       <div class="flex_row_analysis">
-                        <span class="box4"><i class=" fas fa-users"></i></span>
-                        <p><label for="">users</label> <br>
-                            <label class="font_ad"><span>10</span><span>%</span></label>
-                        </p>
-                       </div>
-                    </div>
-            </div>
+                <?php
+               
+               
+                 require("analysis.php")
+                ?>
             <div class="main_ad">
                    <?php
                    require $VIEW_NAME;

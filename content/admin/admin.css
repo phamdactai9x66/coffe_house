@@ -136,17 +136,23 @@ a {
 }
 
 #aside_left .element_bottom {
+  margin-top: 8px;
   padding: 0 8px;
 }
 
 #aside_left .element_bottom li {
-  padding: 16px 8px;
+  padding: 8px 4px;
+  transition: all 0.2s ease-in-out;
+}
+#aside_left .element_bottom li:hover{
+  background-color: rgba(139, 139, 139, 0.4);
 }
 
 #aside_left .element_bottom li a {
+  padding: 8px 4px;
   color: white;
   font-size: 1.1rem;
-  display: inline-block;
+  display: block;
 }
 
 #aside_left .element_bottom li a i {
@@ -155,8 +161,9 @@ a {
 
 .main_center {
   background: #f4f6f9;
-  height: 100%;
+  height: auto;
   width: 100%;
+  display: block;
   -webkit-transition: all 0.3s ease-in-out;
   transition: all 0.3s ease-in-out;
 }
@@ -256,7 +263,7 @@ a {
 }
 
 .main_center .main_ad {
-  max-width: 1170px;
+  max-width: 1470px;
   margin: 0 auto;
   margin-top: 20px;
 }
@@ -315,23 +322,70 @@ a {
   display: block;
 }
 
+.main_center .main_ad .create_something form .submit_bottom {
+  padding: 0;
+  -webkit-box-flex: 1;
+      -ms-flex: 1 100%;
+          flex: 1 100%;
+}
+
 .main_center .main_ad .create_something form div {
   display: inline-block;
   width: 50%;
   padding: 0 5px;
 }
 
+.main_center .main_ad .create_something form div .check_radio {
+  width: 100%;
+  padding: 9px;
+  border-radius: 4px;
+  border: 0.1px solid gray;
+  background-color: white;
+
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.main_center .main_ad .create_something form div .check_radio label{
+  -webkit-box-flex: 1;
+      -ms-flex: 1 50%;
+          flex: 1 50%;
+}
+
+.main_center .main_ad .create_something form div .check_radio p::first-letter {
+  text-transform: uppercase;
+}
+
+.main_center .main_ad .create_something form div .check_radio label input {
+  display: inline-block;
+  vertical-align: middle;
+  margin-left: 5px;
+}
+
 .main_center .main_ad .create_something form input[type="text"],
-.main_center .main_ad .create_something form input[type="email"], .main_center .main_ad .create_something form input[type="number"] {
+.main_center .main_ad .create_something form input[type="email"],
+ .main_center .main_ad .create_something form input[type="number"], .main_center .main_ad .create_something form input[type="file"]
+ , .main_center .main_ad .create_something form input[type="password"],.main_center .main_ad .create_something form input[type="date"]{
   display: block;
   width: 100%;
   padding: 12px;
   margin-right: 10px;
   border-radius: 3px;
   outline: 0;
+  background-color: white;
   border: 0.1px solid gray;
 }
-
+.main_center .main_ad .create_something form input[type="file"],.main_center .main_ad .create_something form input[type="date"]{
+  padding: 10px;
+ 
+}
 .main_center .main_ad .create_something form textarea {
   display: block;
   height: 70px;
@@ -341,6 +395,7 @@ a {
   border-radius: 3px;
   outline: 0;
   border: 0.1px solid gray;
+ 
 }
 
 .main_center .main_ad .create_something form select {
@@ -355,6 +410,20 @@ a {
   border-radius: 4px;
   font-size: 1.1rem;
 }
+.main_center .main_ad .create_something form div > .select_inside_div{
+  display: block;
+  /* margin: 6px 0 16px 0; */
+  padding: 10px 16px;
+  background-color: DodgerBlue;
+  color: white;
+  padding-right: 50px;
+  outline: 0;
+  border: 0;
+  border-radius: 4px;
+  font-size: 1.1rem;
+  margin-top: 2px;
+}
+
 
 .main_center .main_ad .list_something {
   padding: 20px;
@@ -371,6 +440,36 @@ a {
       -ms-flex-align: center;
           align-items: center;
   margin-bottom: 15px;
+}
+.paginnation {
+  margin-top: 10px;
+  min-width: 600px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.paginnation li {
+  list-style-type: none;
+  margin: 0 10px;
+}
+
+.paginnation li a {
+  display: block;
+  padding: 10px 20px;
+  text-decoration: none;
+  color: black;
+}
+
+.paginnation li a:hover {
+  background-color: #4093d6;
+  color: white;
 }
 
 .main_center .main_ad .list_something .searching_element input {
@@ -408,13 +507,13 @@ a {
 }
 
 .main_center .main_ad .list_something table thead tr th {
-  padding: 20px;
+  padding: 20px 10px;
   font-weight: 400;
   text-align: left;
 }
 
 .main_center .main_ad .list_something table tbody tr td, .main_center .main_ad .list_something table tfoot tr td {
-  padding: 20px;
+  padding: 10px;
   border-bottom: 0.1px solid black;
 }
 
@@ -438,6 +537,8 @@ a {
 .main_center .main_ad .list_something table tbody img {
   width: 70px;
   height: 70px;
+  object-fit: cover;
+  border-radius: 100%;
 }
 
 .main_center .main_ad .list_something table tbody input {

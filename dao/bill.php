@@ -1,7 +1,7 @@
 <?php
 require_once("function_pdo.php");
     function list_bill(){
-        $sql="SELECT bl.id_bill, kh.fullname,kh.image,bl.total_money,bl.time_post
+        $sql="SELECT bl.id_bill,kh.sex, kh.fullname,kh.image,bl.total_money,bl.time_post
         FROM bill  bl INNER JOIN user_kh kh on kh.id_kh= bl.id_user";
         return select_all($sql);
     }
@@ -10,6 +10,10 @@ require_once("function_pdo.php");
         WHERE id_bill =?";
         execute_pdo($sql,$id_bill);
     }
+    // function count_bill(){
+    //     $sql="SELECT COUNT(id_bill) FROM bill";
+    //     return select_value($sql);
+    // }
     // delete_bill(3);
 //    echo "<pre>";
 //    print_r( list_bill());

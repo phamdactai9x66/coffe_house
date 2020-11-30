@@ -11,7 +11,7 @@
        }
     }
     //exeute,select_all,select_one,value
-    function execute_pdo($sql){
+    function execute_pdo($sql){//inser,upad,de
         $value=array_slice(func_get_args(),1);
         try{
             $save= connect_DB();
@@ -25,7 +25,7 @@
             unset($save);
         }
     }
-    function select_all($sql){
+    function select_all($sql){//asdas
         $value=array_slice(func_get_args(),1);
         try{
             $save=connect_DB();
@@ -39,7 +39,7 @@
             unset($save);
         }
     }
-    function select_one($sql){
+    function select_one($sql){//asd
         $value=array_slice(func_get_args(),1);
         try{
             $save=connect_DB();
@@ -53,7 +53,7 @@
             unset($save);
         }
     }
-    function select_value($sql){
+    function select_value($sql){//
         $value=array_slice(func_get_args(),1);
         try{
             $save=connect_DB();

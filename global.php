@@ -4,9 +4,13 @@
     $client_url=$root_url."/client";
     $content_url=$root_url."/content";
     $admin_url=$root_url."/admin";
-    // echo "$content_url/admin/admin.css";
+
+    $document_root=$_SERVER["DOCUMENT_ROOT"];
+    $document_url_admin="http://localhost:8090/text/coffe-house/content/admin/image/";
+    $document_url_clien="http://localhost:8090/text/coffe-house/content/client/image/";
+    // echo $content_url."/admin/image/";
     // echo '   <a href="'.$content_url.'/admin/admin.css">das</a>';
-    $image_dir=$_SERVER["DOCUMENT_ROOT"].$content_url;
+    // $image_dir=$_SERVER["DOCUMENT_ROOT"].$content_url;
     // echo $image_dir;
 
     $VIEW_NAME = "index.php";
@@ -16,9 +20,11 @@
     }
     //duong dan thu luu image
     function save_file($fieldname, $target_dir){
+        //check empty of file 
         if(!file_exists($target_dir)){
             mkdir($target_dir, 0777,1 );
         }
+
         $file_uploaded = $_FILES[$fieldname];
         $file_name = basename($file_uploaded["name"]);
         $target_path = $target_dir . $file_name;

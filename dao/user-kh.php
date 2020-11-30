@@ -14,13 +14,17 @@
         SET	`username`=?,`pass`=?,`fullname`=?,`email`=?,`address`=?,`image`=?,
             `sex`=?,`birth`=?,`role`=?,`status`=?,`check_admin`=? 
         WHERE id_kh =?";
-        return execute_pdo($sql,$username,$pass,$fullname,$email
+         execute_pdo($sql,$username,$pass,$fullname,$email
         ,$address,$image,$sex == 1,$birth,$role == 1,$status == 1,$check_addmin == 1,$id_khachhang);
     }
     function delete_user($id_khachhang){
         $sql= "DELETE FROM `user_kh`
         WHERE id_kh =?";
          execute_pdo($sql,$id_khachhang);
+    }
+    function select_user_one($id_kh){
+        $sql="SELECT * FROM `user_kh` WHERE  id_kh = ?";
+        return select_one($sql,$id_kh);
     }
     function list_user(){
         $sql="SELECT * FROM `user_kh` WHERE 1";
@@ -30,6 +34,33 @@
         $sql="SELECT COUNT(id_kh) FROM `user_kh` WHERE 1";
         return select_value($sql);
     }
+
+    function hang_hoa_sildeshow(){
+        $next_page=7;//so trang se duoc hien thi
+        $count_table=select_value("SELECT COUNT(id_kh) FROM `user_kh`");
+ 
+        $tong_hientai= ceil($count_table / $next_page);
+     //    echo $_POST["current_page"];
+         $trang_hientai=(exist_param("current_page")) ? $_REQUEST["current_page"] : 0;
+ 
+         if($trang_hientai < 0){
+             $trang_hientai =0;}
+         if($trang_hientai > $tong_hientai -1){
+             $trang_hientai = $tong_hientai -1;}
+ 
+         $start= $trang_hientai * $next_page;
+         $sql="SELECT * FROM `user_kh`  LIMIT {$start},{$next_page}";
+ 
+        $_SESSION["tong_trang"]=$tong_hientai;
+         $_SESSION["back"]=$trang_hientai <=0 ? 0 : $trang_hientai -1;
+         $_SESSION["next"]=$trang_hientai >= $tong_hientai -1 ? $tong_hientai -1 : $trang_hientai +1;
+        return select_all($sql);
+ 
+     }
+    //  function count_user(){
+    //     $sql="SELECT COUNT(id_kh) FROM user_kh";
+    //     return select_value($sql);
+    //  }
     
     // echo quantily_user();
     // echo "<pre>";

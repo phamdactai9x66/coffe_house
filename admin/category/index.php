@@ -85,6 +85,7 @@ if(exist_param("insert_cate")){
         }else{
            
             $VIEW_NAME="category/add_categoty.php";
+            require("../layout.php");
             return;
         }
     }catch(PDOException $check){
