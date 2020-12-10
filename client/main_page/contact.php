@@ -155,7 +155,7 @@
                                     if(isset($_SESSION["user"])){
                                         echo '  <button type="submit" name="post_contact">SEND</button>';
                                     }else{
-                                        echo '<a href="'.$url_clien.'/main_page/?account&login">Login to use contact</a>';
+                                        echo '<a href="'.$client_url.'/main_page/?account&login">Login to use contact</a>';
                                     }
                                     ?>
                                   

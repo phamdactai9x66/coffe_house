@@ -97,4 +97,6 @@ if (isset($_POST['update_list_cart']) && isset($_SESSION['cart'])) {
    
     header('location: '.$client_url.'/main_page/?cart');
     exit;
+}else{
+    header('location: '.$client_url.'/main_page/?cart');
 }
