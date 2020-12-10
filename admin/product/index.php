@@ -4,15 +4,13 @@ require_once("../../dao/product.php");
 require_once("../../dao/category.php");
 $brand_category="product";
 extract($_REQUEST);
-// echo "<pre>";
-// print_r($_POST);
-// echo "</pre>";
+
 $error=[];
 $test="";
 if(exist_param("insert_product")){
     if(isset($_POST["post_add_user"])){
-        $image=save_file("image",$document_root.$content_url."admin/image/");
-        $image_up= (strlen($image) > 0) ? $image : "img.png";
+        $image1=save_file("image",$document_root.$content_url."/admin/image/");
+        $image_up= (strlen($image1) < 0) ? "img.png" : $image1;
         try{
             $name_EN=htmlspecialchars($_POST["name_EN"]);
             $name_VN=htmlspecialchars($_POST["name_VN"]);
@@ -32,9 +30,7 @@ if(exist_param("insert_product")){
             if(empty($prict)){
                 $error[]="ban an phai phan vao prict";
             }
-            if(empty($discount)){
-                $error[]="ban an phai phan vao discount";
-            }
+           
             if(empty($error)){
             insert_product($name_EN,$name_VN,$image_up,$quantily,$prict,$discount,$desription,$content,$id_cate);
             unset($_POST);
@@ -64,29 +60,43 @@ if(exist_param("insert_product")){
     $list_product=find_product($id_product);
     $list_cate=list_cate();
     extract($list_product);
+    $VIEW_NAME="product/edit_product.php";
+}
+else if(exist_param("update_product")){
+
     if(isset($post_add_user)){
-        $test_image=save_file("image",$document_root.$content_url."admin/image/");
+        $test_image=save_file("image",$document_root.$content_url."/admin/image/");
         // echo $test_image;
-    $image_up2=(strlen($test_image) > 0) ? $test_image : $image_up;
+        $image_up2=(strlen($test_image) > 0) ? $test_image : $image_up;
      
         try{
-            update_product($name_EN,$name_VN,$image,$quantily,$prict,$discount,$view,$desription,$content,$id_cate,$_GET["id_product"]);
+            echo "<pre>";
+            print_r($_POST);
+            echo "</pre>";
+            //$name_EN,$name_VN,$image,$quantily,$prict,$discount,$view_pd,$desription,$content,$id_cate,$id_product
+            update_product($name_EN,$name_VN,$image_up2,$quantily,$prict,$discount,$view,$desription,$content,$id_cate,$_GET["id_product"]);
+            $list_product=find_product($_GET["id_product"]);
+            $list_cate=list_cate();
+            extract($list_product);
+                //  echo "<pre>";
+                // print_r($list_product);
+                // echo "</pre>";
         }catch(PDOException $check){
             echo $check->getMessage();
         }
     echo "thang cong";
     }
    
-    //    echo "<pre>";
-    // print_r($list_product);
-    // echo "</pre>";
+    
    
     $VIEW_NAME="product/edit_product.php";
+
 }
 else if(exist_param("delete_product")){
     try{
         delete_product($id_product);
-        $list_product=hang_hoa_sildeshow();
+            $list_product=hang_hoa_sildeshow();
+      
     }catch(PDOException $check){
         echo $check->getMessage();
     }

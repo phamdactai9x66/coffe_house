@@ -41,7 +41,7 @@ a {
 #first_nav {
   -webkit-transition: all 0.3s ease-in-out;
   transition: all 0.3s ease-in-out;
-  border: 1px solid black;
+  /* border: 1px solid black; */
   padding: 8px 16px;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -95,7 +95,7 @@ a {
   width: 0px;
   min-height: 100%;
   overflow: hidden;
-  border: 1px solid black;
+  /* border: 1px solid black; */
   background-color: #343a40;
   z-index: 200;
 }

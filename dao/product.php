@@ -19,6 +19,11 @@
         $sql="DELETE FROM `product` WHERE id_product =?";
         execute_pdo($sql,$id_product);
     }
+    function list_product_cart($array_id_product){
+        $sql="SELECT * FROM `product` 
+        WHERE id_product IN($array_id_product)";
+        return select_all($sql,$array_id_product);
+    }
     function find_product($id_pd){
         $sql="SELECT * FROM `product` WHERE id_product=?";
         return select_one($sql,$id_pd);
@@ -30,6 +35,21 @@
     function list_product(){
         $sql="SELECT * FROM product";
         return select_all($sql);
+    }
+    function searching_product($name_product){
+        $sql="SELECT * FROM `product`
+        WHERE name_EN like '%$name_product%' or name_VN like '%$name_product%'";
+        return select_all($sql);
+    }
+    function find_product_equal_id_cate($id_cate){
+        $sql="SELECT * FROM `product` WHERE id_cate = ?";
+        return select_all($sql,$id_cate);
+    }
+    function raise_view($id_product){
+        $sql="UPDATE product
+        SET view_pd =view_pd + 1
+        WHERE id_product =?";
+        execute_pdo($sql,$id_product);
     }
     function hang_hoa_sildeshow(){
         $next_page=7;//so trang se duoc hien thi

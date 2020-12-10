@@ -5,13 +5,16 @@ $brand_category="User";
 extract($_REQUEST);
 $error=[];
 $test="";
+
 // echo "<pre>";
 // print_r($_POST);
 // echo "</pre>";
 if(exist_param("add_user")){
-   if(isset($post_add_user)){
+   if(isset($_POST["post_add_user"])){
+       
     $up_image=save_file("image",$document_root.$content_url."/admin/image/");
     $check_image1= (strlen($up_image) < 0 ) ? "null_image" : $up_image;
+    
     $user_name=htmlspecialchars($_POST["user"]);
     $pass_word=htmlspecialchars($_POST["pass_word"]);
     $full_name=htmlspecialchars($_POST["full_name"]);
@@ -46,6 +49,7 @@ if(exist_param("add_user")){
     }else{
         $test=implode("<br />",$error);
         echo $test;
+      
     }
    }
    //$username,$pass,$fullname,$email,$address,$image,$sex,$birth,$role ,$status ,$check_addmin 
@@ -70,9 +74,9 @@ if(exist_param("add_user")){
         if(isset($post_add_user)){
             $up_image=save_file("image",$document_root.$content_url."/admin/image/");
             $check_image1= (strlen($up_image) < 0 ) ? $hidden_image : $up_image;
-            echo "<pre>";
-                      print_r($_POST);
-                      echo "</pre>";
+            // echo "<pre>";
+            //           print_r($_POST);
+            //           echo "</pre>";
             
             $user_name=htmlspecialchars($_POST["user"]);
             $pass_word=htmlspecialchars($_POST["pass_word"]);
@@ -95,21 +99,24 @@ if(exist_param("add_user")){
                 $error[]="ban chua nhap vao address";
             }
             if(empty($error)){
-                      //$username,$pass,$fullname,$email,$address,$image,$sex,$birth,$role ,$status ,$check_addmin 
-                     //$username,$pass,$fullname,$email,$address,$image,$sex,$birth,$role ,$status ,$check_addmin,$id_khachhang
-                    //   var_dump($_POST["role"] );
-                    // //   var_dump($Sex);
-                    //     var_dump($_POST["status"] );
-                     update_user($user_name,$pass_word,$full_name,$email,$address,
-                      $check_image1,$Sex,$_POST["birth"],$_POST["role"] ,$_POST["status"] ,$_POST["check_admin"] ,$id_user);
-                      $list_cate=select_user_one($id_user);
-                      extract($list_cate);
-                      echo "<pre>";
-                      print_r($list_cate);
-                      echo "</pre>";
+                    $new_password=htmlspecialchars($_POST["check_match_pass"]);
+                    
+                    if($new_password == $pass_word){
+                        update_user($user_name,$pass_word,$full_name,$email,$address,
+                        $check_image1,$Sex,$_POST["birth"],$_POST["role"] ,$_POST["status"] ,$_POST["check_admin"] ,$id_user);
+                        $list_cate=select_user_one($id_user);
+                        echo "thang cong";
+                    }else{
+                       echo "ban mat khau khong match.";
+                    }
+                 
+                    //   extract($list_cate);
+                    //   echo "<pre>";
+                    //   print_r($list_cate);
+                    //   echo "</pre>";
                     //   unset($_POST);
                       
-                      echo "thang cong";
+                     
             }else{
                 $test=implode("<br />",$error);
                 echo $test;
@@ -124,7 +131,7 @@ if(exist_param("add_user")){
 else if(exist_param("list_user")){
     try{
         if(isset($_GET["list_user"])){
-           $list_cate=hang_hoa_sildeshow();
+           $list_cate=kh_sildeshow();
         //    echo "<pre>";
         //     print_r($list_cate);
         //     echo "</pre>";

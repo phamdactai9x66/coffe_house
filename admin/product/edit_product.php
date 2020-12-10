@@ -1,5 +1,5 @@
 <div class="create_something">
-                            <form action="?edit_product&id_product=<?=$id_product?>" method="post" enctype="multipart/form-data">
+                            <form action="?update_product&id_product=<?=$id_product?>" method="post" enctype="multipart/form-data">
                             <div>
                                     <label for="">name_EN</label>
                                     <input type="text" name="name_EN" value="<?=$name_EN?>" placeholder="name_EN">

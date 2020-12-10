@@ -26,6 +26,13 @@
         $sql="SELECT * FROM `user_kh` WHERE  id_kh = ?";
         return select_one($sql,$id_kh);
     }
+    //$fullname,$email,$address,$image,$check_image1,$date_user
+    function update_userinfo($fullname,$email,$address,$image,$sex,$birth,$id_kh){
+        $sql="UPDATE user_kh
+        SET fullname =?,email=?,address=?,image=?,sex=?,birth=?
+        WHERE id_kh=?";
+         execute_pdo($sql,$fullname,$email,$address,$image,$sex ==1,$birth,$id_kh);
+    }
     function list_user(){
         $sql="SELECT * FROM `user_kh` WHERE 1";
         return select_all($sql);
@@ -34,8 +41,11 @@
         $sql="SELECT COUNT(id_kh) FROM `user_kh` WHERE 1";
         return select_value($sql);
     }
-
-    function hang_hoa_sildeshow(){
+    function find_username($username){
+        $sql="SELECT * FROM `user_kh` WHERE username = ?";
+        return select_one($sql,$username);
+    }
+    function kh_sildeshow(){
         $next_page=7;//so trang se duoc hien thi
         $count_table=select_value("SELECT COUNT(id_kh) FROM `user_kh`");
  

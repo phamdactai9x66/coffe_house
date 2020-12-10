@@ -3,12 +3,12 @@
                             <form action="" method="post">
                                 <div>
                                     <label for="">name_VN(edit)</label>
-                                    <input type="text" name="name_vn" id="" value="<?=$name_EN?>" placeholder="name_cate">
+                                    <input type="text" name="name_vn" id="" value="<?=$name_VN?>" placeholder="name_cate">
                                 </div>
 
                                 <div>
                                     <label for="">name_EN(edit)</label>
-                                    <input type="text" name="name_en" id="" value="<?=$name_VN?>" placeholder="name_cate_EN">
+                                    <input type="text" name="name_en" id="" value="<?=$name_EN?>" placeholder="name_cate_EN">
                                 </div> 
                                 
                                 

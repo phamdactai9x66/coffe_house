@@ -52,7 +52,7 @@ if(exist_param("delete_cate")){
 }
 else{
   try{
-    $list_comment=comment_product();
+    $list_comment=comment_sildeshow();
 
 
   }catch(PDOException $check){

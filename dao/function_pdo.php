@@ -18,6 +18,7 @@
             $exeute= $save->prepare($sql);
             $exeute->execute($value);
             return $save->lastInsertId();
+          
         }catch(PDOExcepetion $check){
             echo $check->getMessage();
         }

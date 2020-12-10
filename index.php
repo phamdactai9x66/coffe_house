@@ -1,2 +1,2 @@
 <?php
-header("location: admin/main_page");
+header("location: client/main_page/main_home.php");

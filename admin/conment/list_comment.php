@@ -1,11 +1,11 @@
 <div class="list_something">
                         <form action="" method="post" class="searching_element">
                             <input type="text" name="" id="searching" placeholder="searching">
-                            <select name="" id="">
+                            <!-- <select name="" id="">
                                 <option value="">moi nhat</option>
                                 <option value="">as</option>
                                 <option value="">as</option>
-                            </select>
+                            </select> -->
                         </form>
                         <table id="table_parent2">
                             <thead>
@@ -26,11 +26,17 @@
                                     foreach($list_comment as $key => $value){
                                         $i+=1;
                                         extract($value);
+                                      
+                                         if($image == "img.png" or $image == "" ){
+                                            $image=$document_url_admin.$image;
+                                           }else{
+                                               $image=$document_url_admin.$image;
+                                           }
                                         echo '
                                         <tr>
                                         <td>'.$i.' </td>
                                         <td class="name_eng">'.$name_EN.'</td>
-                                        <td>'.$image.'</td>
+                                        <td><img src="'.$image.'" alt=""></td>
                                         <td>'.$sl_comment.'</td>
                                         <td>'.$old.'</td>
                                         <td>'.$new.'</td>
@@ -45,5 +51,22 @@
                             </tbody>
                             
                         </table>
+                        <ul class="paginnation">
+            <li><a href="?list_product&current_page=<?=$_SESSION["back"]?>"><i class="fas fa-chevron-left"></i></a></li>
+            <?php
+            //    echo $_SESSION["tong_trang"];
+                   if($_SESSION["tong_trang"] >0){
+                       for($i =0 ; $i < $_SESSION["tong_trang"]; $i++){
+                           $y=$i+1;
+                           echo '<li> <a href="?list_product&current_page='.$i.'">'.$y.'</a> </li>';
+                       }
+                   }else{
+                       echo  "<li>khong co trang nao</li>";
+                   }
+                  
+               ?>
+            <li><a href="?list_product&current_page=<?=$_SESSION["next"]?>"><i class="fas fa-chevron-right"></i></a></li>
+    </ul>
                         <!-- <a href="?add_categoty" class="submit">add_new_cate</a> -->
                     </div>
+<img src="" alt="">

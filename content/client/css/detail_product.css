@@ -1,0 +1,365 @@
+.main-center {
+    max-width: 1170px;
+    margin: 0 auto;
+  }
+  
+  .main-center article {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-flow: row nowrap;
+            flex-flow: row nowrap;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  
+  .main-center article .image-left {
+    -ms-flex-preferred-size: 50%;
+        flex-basis: 50%;
+    cursor: pointer;
+  }
+  
+  .main-center article .image-left a {
+    width: 100%;
+  }
+  
+  .main-center article .image-left a img {
+    width: 100%;
+    height: 100%;
+  }
+  
+  .main-center article .content-right {
+    -ms-flex-preferred-size: 45%;
+        flex-basis: 45%;
+    height: 100%;
+    margin-bottom: 100px;
+  }
+  
+  .main-center article .content-right div h2 {
+    font-size: 50px;
+    line-height: 1;
+  }
+  
+  .main-center article .content-right div h3 {
+    font-size: 28px;
+    font-family: inherit;
+    font-weight: 400;
+  }
+  
+  .main-center article .content-right div p {
+    padding: 1.2em 0;
+  }
+  
+  .main-center article .content-right div form {
+    margin: 15px 0;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
+  
+  .main-center article .content-right div form .number1 {
+    width: 80px;
+    height: 60px;
+    border: 0;
+    text-align: center;
+    outline: 0;
+  }
+  
+  .main-center article .content-right div form .submit2  {
+    display: block;
+    color: white;
+    background-color: black;
+    padding: 13px 30px;
+    width: 375px;
+    border: 0;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    cursor: pointer;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    text-transform: uppercase;
+  }
+  
+  .comment-user {
+    max-width: 1170px;
+    margin: 0 auto;
+    border-top: 0.2px solid black;
+    margin-top: 50px;
+    padding: 30px 0;
+    
+  }
+  .heade-main{
+      text-align: left;
+  }
+  .comment-user .heade-main h1 {
+    text-transform: uppercase;
+    font-size: 80px;
+  }
+  
+  .comment-user .heade-main nav {
+    text-align: center;
+    margin-bottom: 40px;
+  }
+  
+  .comment-user .heade-main nav li {
+    display: inline-block;
+  }
+  
+  .comment-user .heade-main nav li a {
+    margin-left: 10px;
+    font-size: 20px;
+    letter-spacing: .5px;
+    line-height: 1.2;
+    text-transform: uppercase;
+    color: #000;
+    padding-bottom: 5px;
+  }
+  
+  .comment-user .heade-main nav li a:hover {
+    border-bottom: 2px solid black;
+  }
+  
+  .comment-user .heade-main li:nth-child(1) a {
+    color: #c7a17a;
+    border-color: #c7a17a;
+    border-bottom: 2px solid  #c7a17a;
+  }
+  
+  .comment-user .heade-main .list_comment_parent {
+    margin-bottom: 50px;
+  }
+  
+  .comment-user .heade-main .list_comment_parent .list_comment {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    font-family: inherit;
+    padding: 1rem 0;
+    border-bottom: 0.1px solid gray;
+  }
+  
+  .comment-user .heade-main .list_comment_parent .list_comment img {
+    width: 60px;
+    height: 60px;
+    border-radius: 100%;
+    margin-right: 20px;
+  }
+  
+  .comment-user .heade-main .list_comment_parent .list_comment p i {
+    font-weight: 400;
+    text-transform: capitalize;
+  }
+  
+  .comment-user .heade-main .list_comment_parent .list_comment p label {
+    font-weight: 200;
+    display: inline-block;
+  }
+  
+  .comment-user .heade-main .list_comment_parent .list_comment p label::first-letter {
+    text-transform: uppercase;
+  }
+  
+  .comment-user .heade-main .list_comment_parent .list_comment p label, .comment-user .heade-main .list_comment_parent .list_comment p i {
+    padding-bottom: 0.50rem;
+  }
+  
+  .comment-user .heade-main .create_comment > p {
+    font-family: inherit;
+    font-size: 1.3em;
+  }
+  
+  .comment-user .heade-main .create_comment > p::first-letter {
+    text-transform: uppercase;
+  }
+  
+  .comment-user .heade-main .create_comment form > p, .comment-user .heade-main .create_comment form > div {
+    margin-bottom: 0.5ems;
+  }
+  
+  .comment-user .heade-main .create_comment form input[type=submit] {
+    padding: 16px 30px;
+    background-color: black;
+    color: white;
+    text-transform: uppercase;
+    font-weight: 400;
+    border: 1px solid black;
+    outline: 0;
+    letter-spacing: 3px;
+    font-size: 1.0rem;
+    cursor: pointer;
+  }
+  
+  .comment-user .heade-main .create_comment form div {
+    margin: 10px 0;
+  }
+  
+  .comment-user .heade-main .create_comment form div label {
+    display: inline-block;
+  }
+  
+  .comment-user .heade-main .create_comment form div label::first-letter {
+    text-transform: uppercase;
+  }
+  
+  .comment-user .heade-main .create_comment form div textarea {
+    display: block;
+    width: 100%;
+    outline: 0;
+    border: 0;
+    border-bottom: 0.1px solid black;
+    padding: 0.75em 0;
+  }
+  
+  .comment-user .heade-main .create_comment form div textarea:focus {
+    border-bottom: 0.1px solid #c7a17a;
+  }
+  
+  .comment-user .heade-main .create_comment form .input_email {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
+  
+  .comment-user .heade-main .create_comment form .input_email div {
+    display: inline-block;
+    width: 100%;
+  }
+  
+  .comment-user .heade-main .create_comment form .input_email div p {
+    font-family: 1.1rem;
+  }
+  
+  .comment-user .heade-main .create_comment form .input_email div p::first-letter {
+    text-transform: uppercase;
+  }
+  
+  .comment-user .heade-main .create_comment form .input_email div .class_input {
+    display: inline-block;
+    width: 100%;
+    padding: 0.5em 0;
+    border: 0;
+    border-bottom: 0.1px solid black;
+    outline: 0;
+    padding: 10px 0;
+  }
+  #big_img {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1000;
+    background: rgba(1, 1, 1, 0.5);
+    text-align: center;
+  }
+  
+  #big_img img {
+    display: inline-block;
+    width: 900px;
+    max-width: 700px;
+  }
+  
+  #big_img #next {
+    position: absolute;
+    top: 100px;
+    right: 150px;
+    color: white;
+    cursor: pointer;
+  }
+  
+  #big_img #next i {
+    font-size: 2rem;
+  }
+  
+  .comment-user .heade-main .create_comment form .input_email div .class_input:focus {
+    border-bottom: 0.1px solid #c7a17a;
+  }
+  
+  .related_product .grid-bottom {
+    max-width: 1170px;
+    margin: 0 auto;
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: (33.33333%);
+        grid-template-columns: repeat(3, 33.33333%);
+    text-align: center;
+  }
+  
+  .related_product .grid-bottom li > a:nth-child(1) {
+    width: 100%;
+    height: 100%;
+    -webkit-transition: all 0.3s ease-out;
+    transition: all 0.3s ease-out;
+  }
+  
+  .related_product .grid-bottom li > a:nth-child(1) img {
+    width: 100%;
+    height: auto;
+  }
+  
+  .related_product .grid-bottom li > a:nth-child(1) h2 {
+    color: black;
+    text-transform: uppercase;
+  }
+  
+  .related_product .grid-bottom li > a:nth-child(1) p {
+    color: black;
+    font-weight: 400;
+  }
+  
+  .related_product .grid-bottom li > a:nth-child(1) p label {
+    padding-top: 4px;
+    font-size: 1.1rem;
+    font-family: inherit;
+    word-spacing: 5px;
+  }
+  
+  .related_product .grid-bottom li:hover > a:nth-child(1) {
+    -webkit-transform: translateY(-20px);
+            transform: translateY(-20px);
+  }
+  
+  .related_product .grid-bottom li #hello {
+    color: black;
+    width: 100%;
+    padding: 10px 0;
+    background-color: black;
+    color: white;
+    border: 0.1px solid white;
+    -webkit-filter: opacity(0);
+            filter: opacity(0);
+    visibility: hidden;
+    -webkit-transform: translateY(0px);
+            transform: translateY(0px);
+    -webkit-transition: all 0.3s ease-in;
+    transition: all 0.3s ease-in;
+  }
+  
+  .related_product .grid-bottom li #hello:hover {
+    background-color: white;
+    border: 0.1px solid black;
+    color: black;
+    -webkit-transform: translateY(-5px);
+            transform: translateY(-5px);
+  }
+  
+  .related_product .grid-bottom li:hover #hello {
+    visibility: visible;
+    -webkit-filter: opacity(1);
+            filter: opacity(1);
+  }

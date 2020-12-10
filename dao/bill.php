@@ -10,6 +10,11 @@ require_once("function_pdo.php");
         WHERE id_bill =?";
         execute_pdo($sql,$id_bill);
     }
+    function insert_bill($id_user,$total_money,$time){
+        $sql="INSERT INTO `bill`( `id_user`, `total_money`, `time_post`)
+        VALUES (?,?,?)";
+        return execute_pdo($sql,$id_user,$total_money,$time);
+    }
     // function count_bill(){
     //     $sql="SELECT COUNT(id_bill) FROM bill";
     //     return select_value($sql);

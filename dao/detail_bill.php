@@ -12,6 +12,11 @@ function delete_detail_bill($id_detail_bill){
      WHERE id_detail_bill = ?";
     execute_pdo($sql,$id_detail_bill);
 }
+function insert_detail_bill($id_product,$id_bill,$quantily,$prict){
+    $sql="INSERT INTO `detail_bill`(`id_product`, `id_bill`, `quantily`, `prict`) 
+    VALUES (?,?,?,?)";
+      execute_pdo($sql,$id_product,$id_bill,$quantily,$prict);
+}
 // delete_detail_bill(3);
 // echo "<pre>";
 // print_r(list_detail_bill(1));

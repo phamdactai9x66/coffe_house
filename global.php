@@ -4,10 +4,13 @@
     $client_url=$root_url."/client";
     $content_url=$root_url."/content";
     $admin_url=$root_url."/admin";
-
+   
     $document_root=$_SERVER["DOCUMENT_ROOT"];
     $document_url_admin="http://localhost:8090/text/coffe-house/content/admin/image/";
     $document_url_clien="http://localhost:8090/text/coffe-house/content/client/image/";
+    $url_clien="http://localhost:8090/text/coffe-house/client";
+    $url_content="http://localhost:8090/text/coffe-house";
+    // echo $url_content."/content/client/css/main_home.css";
     // echo $content_url."/admin/image/";
     // echo '   <a href="'.$content_url.'/admin/admin.css">das</a>';
     // $image_dir=$_SERVER["DOCUMENT_ROOT"].$content_url;
@@ -36,15 +39,17 @@
     function add_cookie($name,$value,$time_litmit){
         setcookie($name,$value,time() + ($time_litmit * 86400));
     }
+   
     function delete_cookie($name){
         setcookie($name,"",time() -1);
     }
     function get_cookie($name){
         return $_COOKIE[$name]??'';
     }
+    // delete_cookie("asdas");
     // get_cookie("xin chao");
     
-    delete_cookie("new_value");
+    // delete_cookie("new_value");
 
     // var_dump(get_cookie("new_value"));
     // echo "<pre>";

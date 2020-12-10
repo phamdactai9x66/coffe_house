@@ -1,11 +1,11 @@
 <div class="list_something">
                         <form action="" method="post" class="searching_element">
                             <input type="text" name="" id="searching" placeholder="searching">
-                            <select name="" id="">
+                            <!-- <select name="" id="">
                                 <option value="">moi nhat</option>
                                 <option value="">as</option>
                                 <option value="">as</option>
-                            </select>
+                            </select> -->
                         </form>
                         <table id="table_parent2">
                             <thead>
