@@ -13,16 +13,16 @@
                         <h1>Already have an account?</h1>
                         <p>There are advances being made in science and technology<br>
                             everyday, and a good example of this is the</p>
-                        <a href="<?=$url_clien?>/main_page/?account&login">LOGIN NOW</a>
+                        <a href="<?=$client_url?>/main_page/?account&login">LOGIN NOW</a>
                     </div>
                 </div>
                 <div class="box2">
                     <div class="login_form_inner">
                         <h1>Create an Account</h1>
                         <div class="login_form">
-                            <form action="<?=$url_clien?>/check_account/create_ac.php" method="post" enctype="multipart/form-data">
+                            <form action="<?=$client_url?>/check_account/create_ac.php" method="post" enctype="multipart/form-data">
                                 <div class="avatar">
-                                    <img src="<?=$document_url_admin?>/user.png" alt=""><br>
+                                    <img src="<?=$content_url_image_ad?>/user.png" alt=""><br>
                                     <input type="file" name="upload_avatar">
                                 </div>
                                 <p>fullname</p>

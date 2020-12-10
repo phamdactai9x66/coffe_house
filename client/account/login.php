@@ -21,7 +21,7 @@
                     <div class="login_form_inner">
                     <h1>Welcome Back !<br>Please Sign in now</h1>
                     <div class="login_form">
-                    <form action="<?=$url_clien?>/check_account/login.php" method="post" >
+                    <form action="<?=$client_url?>/check_account/login.php" method="post" >
                     <p>Your username</p>
                     <input type="text" name="username">
                     <p>Password</p>
@@ -30,7 +30,7 @@
                     <div class="creat_account">
                         <input type="checkbox" name="ghi_nho" value="1" id="11">
                         <label for="11">Remember me</label>
-                        <a href="<?=$url_clien?>/main_page/?account&forgot_pass">Forget Password?</a>
+                        <a href="<?=$client_url?>/main_page/?account&forgot_pass">Forget Password?</a>
                     </div>
                     <div class="login_bts">
                         <button type="submit" name="btn_login">LOGIN</button>

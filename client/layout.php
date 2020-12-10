@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="<?=$content_url?>/client/css/layout_client.css" class="css">
-    <link rel="icon" type="image/png"  href="<?=$document_url_clien?>logo_white-e1592989810533.png" >
+    <link rel="icon" type="image/png"  href="<?=$content_url_image_client?>logo_white-e1592989810533.png" >
     <script src="https://kit.fontawesome.com/f0abe83c71.js" crossorigin="anonymous"></script>
     <script src="<?=$content_url?>/client/js/layout_client.js"></script>
     <title>Home 6 &#8211; Craft | Cafes Coffee Shops Bars WordPress</title>

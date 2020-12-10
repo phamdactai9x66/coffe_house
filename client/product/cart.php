@@ -31,10 +31,10 @@ if(exist_param("buy_now")){
         echo "thanh cong";
 
     }else{
-        header("location: http://localhost:8090/text/coffe-house/client/main_page/?cart");
+        header('location: '.$client_url.'/main_page/?cart');
         exit;
     }
-    header("location: http://localhost:8090/text/coffe-house/client/main_page/?cart");
+    header('location: '.$client_url.'/main_page/?cart');
     // session_destroy();
     //$id_user,$total_money,$time
     // echo $date;
@@ -70,7 +70,7 @@ if (isset($_POST['id_product'], $_POST['quantily']) && is_numeric($_POST['id_pro
         }
     }
 
-    header('location: http://localhost:8090/text/coffe-house/client/product/?id_product='.$id_product.'');
+    header('location: '.$client_url.'/product/?id_product='.$id_product.'');
     // Prevent form resubmission...
     // header('location: index.php?page=cart');
     // exit;
@@ -78,7 +78,7 @@ if (isset($_POST['id_product'], $_POST['quantily']) && is_numeric($_POST['id_pro
 if (isset($_GET['remove']) && is_numeric($_GET['remove']) && isset($_SESSION['cart']) && isset($_SESSION['cart'][$_GET['remove']])) {
     
     unset($_SESSION['cart'][$_GET['remove']]);
-    header("location: http://localhost:8090/text/coffe-house/client/main_page/?cart");
+    header("location: '.$client_url.'/main_page/?cart");
 }
 
 if (isset($_POST['update_list_cart']) && isset($_SESSION['cart'])) {
@@ -95,6 +95,6 @@ if (isset($_POST['update_list_cart']) && isset($_SESSION['cart'])) {
         }
     }
    
-    header("location: http://localhost:8090/text/coffe-house/client/main_page/?cart");
+    header('location: '.$client_url.'/main_page/?cart');
     exit;
 }

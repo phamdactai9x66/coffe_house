@@ -31,9 +31,9 @@
                                     $i+=1;
                                     extract($value);
                                     if($image == "img.png" or $image == "" ){
-                                        $image=$document_url_admin.$image;
+                                        $image=$content_url_image_ad.$image;
                                        }else{
-                                           $image=$document_url_admin.$image;
+                                           $image=$content_url_image_ad.$image;
                                        }
                                      
                                     

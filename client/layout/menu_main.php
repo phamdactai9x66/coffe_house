@@ -8,12 +8,12 @@ $list_cate=list_cate();
 ?>
 <section class="top-header">
             <div class="flex-top-header">
-                    <div class="box1 genaral"><a href="<?=$client_url?>/main_page/main_home.php"><img src="<?=$document_url_clien?>logo-e1592989828631.png" alt=""></a></div>
+                    <div class="box1 genaral"><a href="<?=$client_url?>/main_page/main_home.php"><img src="<?=$content_url_image_client?>logo-e1592989828631.png" alt=""></a></div>
                     <div class="box2 genaral"> <i class="far fa-clock"></i> OPENNING HOURS 11.30AM – 2.30PM</div>
                     <ul class="box3 genaral">
                             <li><a href="<?=$client_url?>/main_page/">home</a></li>
-                            <li><a href="<?=$url_clien?>/main_page/?cart">card</a></li>
-                            <li><a href="<?=$url_clien?>/main_page/?contact">contact</a></li>
+                            <li><a href="<?=$client_url?>/main_page/?cart">card</a></li>
+                            <li><a href="<?=$client_url?>/main_page/?contact">contact</a></li>
                             <li class="menu_home11"><a href="#">menu</a><i class="fas fa-angle-down"></i>
                                 <div class="menu-home"> 
                                   
@@ -32,7 +32,7 @@ $list_cate=list_cate();
                                                 $i++;
                                                 echo ' 
                                                 <li>
-                                                <img src="'.$document_url_admin.$image.'" alt="">
+                                                <img src="'.$content_url_image_ad.$image.'" alt="">
                                                 <h2>'.$name_EN.' ... <span>$'.number_format($price).'</span>
                                                     <label class="font_size_text">the content it under</label></h2>
                                                 </li>
@@ -55,7 +55,7 @@ $list_cate=list_cate();
                                                 $i++;
                                                 echo ' 
                                                 <li>
-                                                <img src="'.$document_url_admin.$image.'" alt="">
+                                                <img src="'.$content_url_image_ad.$image.'" alt="">
                                                 <h2>'.$name_EN.' ... <span>$'.number_format($price).'</span>
                                                     <label class="font_size_text">the content it under</label></h2>
                                                 </li>
@@ -78,7 +78,7 @@ $list_cate=list_cate();
                                                 $i++;
                                                 echo ' 
                                                 <li>
-                                                <img src="'.$document_url_admin.$image.'" alt="">
+                                                <img src="'.$content_url_image_ad.$image.'" alt="">
                                                 <h2>'.$name_EN.' ... <span>$'.number_format($price).'</span>
                                                     <label class="font_size_text">the content it under</label></h2>
                                                 </li>
@@ -105,19 +105,18 @@ $list_cate=list_cate();
                                          <?php
                                         //$_SESSION["user"]["id_kh"]
                                         //http://localhost:8090/text/coffe-house/admin/main_page/
-                                         if(isset($_SESSION["user"])){
-                                             echo ' <li><a href="'.$url_clien.'/check_account/login.php'.'">Logout</a></li>
-                                             <li><a href="'.$url_clien.'/main_page/?account&update_user">Edit account</a></li>';
-                                             if($_SESSION["user"]["role"] == 1){
-                                                echo ' <li><a href="http://localhost:8090/text/coffe-house/admin/main_page/">admin</a></li>';
-                                             }
-                                         }else{
-                                             echo ' <li><a href="'.$url_clien.'/main_page/?account&login">Login</a></li>
-                                             <li><a href="'.$url_clien.'/main_page/?account&forgot_pass">Forgot password</a></li>
-                                          
-                                             <li><a href="'.$url_clien.'/main_page/?account&create_ac">Create an Account</a></li>
-                                             ';
-                                         }
+                                        if(isset($_SESSION["user"])){
+                                            echo ' <li><a href="'.$client_url.'/check_account/login.php'.'">Logout</a></li>
+                                            <li><a href="'.$client_url.'/main_page/?account&update_user">Edit account</a></li>';
+                                            if($_SESSION["user"]["role"] == 1){
+                                               echo ' <li><a href="'.$admin_url.'/main_page/">admin</a></li>';
+                                            }
+                                        }else{
+                                            echo ' <li><a href="'.$client_url.'/main_page/?account&login">Login</a></li>
+                                            <li><a href="'.$client_url.'/main_page/?account&forgot_pass">forgot password</a></li>
+                                            <li><a href="'.$client_url.'/main_page/?account&create_ac">Create account</a></li>
+                                            ';
+                                        }
                                          ?>
                                        
                                        

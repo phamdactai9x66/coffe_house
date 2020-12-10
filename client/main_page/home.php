@@ -57,9 +57,9 @@
             foreach($list_cate as $key => $value){
                 extract($value);
                 if($image == "img.png" or $image == "" ){
-                    $image=$document_url_admin.$image;
+                    $image=$content_url_image_ad.$image;
                    }else{
-                       $image=$document_url_admin.$image;
+                       $image=$content_url_image_ad.$image;
                    }
                    $discount="0.".$discount."<br />";
                 //    echo (float)$discount;
@@ -84,9 +84,9 @@
                 foreach($searching as $key => $value){
                     extract($value);
                     if($image == "img.png" or $image == "" ){
-                        $image=$document_url_admin.$image;
+                        $image=$content_url_image_ad.$image;
                        }else{
-                           $image=$document_url_admin.$image;
+                           $image=$content_url_image_ad.$image;
                        }
                        $discount="0.".$discount."<br />";
                     //    echo (float)$discount;
@@ -112,9 +112,9 @@
             foreach($list_cate as $key => $value){
                 extract($value);
                 if($image == "img.png" or $image == "" ){
-                    $image=$document_url_admin.$image;
+                    $image=$content_url_image_ad.$image;
                    }else{
-                       $image=$document_url_admin.$image;
+                       $image=$content_url_image_ad.$image;
                    }
                 $save_list.='  <li>
                 <a href="'.$client_url.'/product/?id_product='.$id_product.'">

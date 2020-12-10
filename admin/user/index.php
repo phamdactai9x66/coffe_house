@@ -58,7 +58,7 @@ if(exist_param("add_user")){
 }else if(exist_param("delete_cate")){
     try{
         delete_user($id_user);
-        $list_cate=list_user();
+        $list_cate=kh_sildeshow();
 
     }catch(PDOException $check){
         echo $check->getMessage();
@@ -148,9 +148,27 @@ else if(exist_param("list_user")){
     }
 
     $VIEW_NAME="user/list_user.php";
-}
-else{
+}else if(exist_param("add_categoty")){
     $VIEW_NAME="user/add_user.php";
 }
+else{
+  try{
+       
+    $list_cate=kh_sildeshow();
+ //    echo "<pre>";
+ //     print_r($list_cate);
+ //     echo "</pre>";
+ //    extract($list_cate);
+  
+
+    
+   
+    
+}catch(PDOException $check){
+ $check->getMessage();
+}
+$VIEW_NAME="user/list_user.php";
+}
+
 require("../layout.php");
 ?>

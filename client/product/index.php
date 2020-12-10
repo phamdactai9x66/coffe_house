@@ -11,6 +11,7 @@ $find_product=find_product($id_product);
 // echo "<pre>";
 // print_r($find_product);
 // echo "</pre>";
+$image_product= $find_product["image"];
 extract($find_product);
 
 $list_cate_id_pd=find_product_equal_id_cate($id_cate);
@@ -20,10 +21,10 @@ $list_comment=list_comment($id_product);
 // print_r($list_comment);
 // echo "</pre>";
 
-if($image == "img.png" or $image == "" ){
-    $image=$document_url_admin.$image;
+if($image_product == "img.png" or $image_product == "" ){
+    $image_product=$content_url_image_ad.$image_product;
    }else{
-       $image=$document_url_admin.$image;
+       $image_product=$content_url_image_ad.$image_product;
    }
 
 

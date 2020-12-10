@@ -17,9 +17,9 @@ if(exist_param("delete_bill")){
     try{
        
         $list_bill=list_detail_bill($id_bill_1);
-        echo "<pre>";
-        print_r($list_bill);
-        echo "</pre>";
+        // echo "<pre>";
+        // print_r($list_bill);
+        // echo "</pre>";
 
     }catch(PDOException $check){
         $check->getMessage();

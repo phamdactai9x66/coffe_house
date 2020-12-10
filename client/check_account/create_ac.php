@@ -57,7 +57,7 @@ if(isset($create_ac)){
               unset($_POST);
               
              
-              header("location: http://localhost:8090/text/coffe-house/client/main_page/?account&login");
+              header("location: ".$client_url."/main_page/?account&login");
               echo "thang cong";
     }else{
         $test=implode("<br />",$error);
@@ -68,7 +68,7 @@ if(isset($create_ac)){
    
     }
 }else{
-    header("location: http://localhost:8090/text/coffe-house/client/main_page/");
+    header("location: ".$client_url."/main_page/");
 }
 
 

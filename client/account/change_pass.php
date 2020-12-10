@@ -86,7 +86,7 @@ if(isset($check_change)){
                         <tfoot>
                             <tr style="border: none;">
                                 <td colspan="4"><a class="button" href="#popup1" style="color: black;"> 
-                                <a href="<?=$url_clien?>/main_page/?account&update_user" style="color:black;"> Cancel</a>
+                                <a href="<?=$client_url?>/main_page/?account&update_user" style="color:black;"> Cancel</a>
                              
                                 <td colspan="4"><input type="submit" value="SUBMIT" name="check_change"></td>
                             </tr>

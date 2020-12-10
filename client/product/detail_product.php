@@ -19,7 +19,7 @@
             <article>
                 <div class="image-left">
                     
-                        <img  src="<?=$document_url_admin.$image?>" id="image_origin1" alt="san ppham 12">
+                        <img  src="<?=$image_product?>" id="image_origin1" alt="san ppham 12">
                   
                 </div>
                 <div class="content-right">

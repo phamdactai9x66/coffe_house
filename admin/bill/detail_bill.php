@@ -27,12 +27,12 @@
                                         extract($value);
                                         if(empty($image)){
                                             if($sex == 1){
-                                               $image="http://localhost:8090/text/coffe-house/content/admin/image/undraw_male_avatar_323b%20(1).png";
+                                               $image="".$content_url_image_ad."undraw_male_avatar_323b%20(1).png";
                                             }else{
-                                                $image="http://localhost:8090/text/coffe-house/content/admin/image/undraw_female_avatar_w3jk%20(2).png";
+                                                $image="".$content_url_image_ad."undraw_female_avatar_w3jk%20(2).png";
                                             }
                                          }else{
-                                             $image=$document_url_admin.$image;
+                                             $image=$content_url_image_ad.$image;
                                          }
                                         echo '
                                         <tr>

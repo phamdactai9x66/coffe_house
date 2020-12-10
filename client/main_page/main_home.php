@@ -1,5 +1,9 @@
 <?php
 require_once("../../global.php");
+require_once("../../dao/category.php");
+require_once("../../dao/product.php");
+
+$list_cate=list_cate();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -9,7 +13,7 @@ require_once("../../global.php");
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home 6 &#8211; Craft | Cafes Coffee Shops Bars WordPress</title>
     <link rel="icon" type="image/png"  href="<?=$document_url_clien?>logo_white-e1592989810533.png" >
-    <script src="<?=$url_content?>/content/client/js/main_home.js"></script>
+    <script src="<?=$content_url?>/client/js/main_home.js"></script>
 
     <link rel="stylesheet" href="<?=$content_url?>/client/css/main_home.css" class="css">
     <script src="https://kit.fontawesome.com/f0abe83c71.js" crossorigin="anonymous"></script>
@@ -30,7 +34,7 @@ require_once("../../global.php");
     <a href="#" id="back-top"><i class="fab fa-autoprefixer"></i></a>   
     <section class="parent-filex">
         <section class="filex">
-            <a href="<?=$url_clien?>/main_page/" class="brand-header"><img src="<?=$document_url_clien?>logo_white-e1592989810533.png" alt=""></a>
+            <a href="<?=$client_url?>/main_page/" class="brand-header"><img src="<?=$content_url_image_client?>logo_white-e1592989810533.png" alt=""></a>
             <div class="border-filex">
                 <div class="filex-content-top">
                     <div>
@@ -44,15 +48,15 @@ require_once("../../global.php");
                                         //$_SESSION["user"]["id_kh"]
                                         //http://localhost:8090/text/coffe-house/admin/main_page/
                                          if(isset($_SESSION["user"])){
-                                             echo ' <li><a href="'.$url_clien.'/check_account/login.php'.'">dang xuat</a></li>
-                                             <li><a href="http://localhost:8090/text/coffe-house/client/main_page/?account&update_user">sua tai khoan</a></li>';
+                                             echo ' <li><a href="'.$client_url.'/check_account/login.php'.'">Logout</a></li>
+                                             <li><a href="'.$client_url.'/main_page/?account&update_user">Edit account</a></li>';
                                              if($_SESSION["user"]["role"] == 1){
-                                                echo ' <li><a href="http://localhost:8090/text/coffe-house/admin/main_page/">admin</a></li>';
+                                                echo ' <li><a href="'.$admin_url.'/main_page/">admin</a></li>';
                                              }
                                          }else{
-                                             echo ' <li><a href="http://localhost:8090/text/coffe-house/client/main_page/?account&login">dang nhap</a></li>
-                                             <li><a href="http://localhost:8090/text/coffe-house/client/main_page/?account&forget_pw">quan mat khau</a></li>
-                                             <li><a href="http://localhost:8090/text/coffe-house/client/main_page/?account&create_ac">dang ky</a></li>
+                                             echo ' <li><a href="'.$client_url.'/main_page/?account&login">Login</a></li>
+                                             <li><a href="'.$client_url.'/main_page/?account&forgot_pass">forgot password</a></li>
+                                             <li><a href="'.$client_url.'/main_page/?account&create_ac">Create account</a></li>
                                              ';
                                          }
                                          ?>
@@ -80,64 +84,76 @@ require_once("../../global.php");
                                       
                                        <div class="parent_1">
                                         <div class="row">
-                                            <header>home site</header>
+                                        <header><?=$list_cate[0]["name_EN"]?></header>
+                                            
                                             <ul class="link_row">
+                                            <?php
+                                            $product=find_product_equal_id_cate($list_cate[0]["id_cate"]);
+                                            $i=0;
+                                            foreach($product as $key => $value){
+                                                extract($value);
+                                                $i++;
+                                                echo ' 
                                                 <li>
-                                                    <img src="<?=$document_url_clien?>58db701349cb48738069e8c912e2b3ac_result-150x150.jpg" alt="">
-                                                    <h2>cafe americano ... <span>$9</span><span>$9</span>
-                                                        <label class="font_size_text">the content it under</label></h2>
+                                                <img src="'.$content_url_image_ad.$image.'" alt="">
+                                                <h2>'.$name_EN.' ... <span>$'.number_format($price).'</span>
+                                                    <label class="font_size_text">the content it under</label></h2>
                                                 </li>
-                                                <li>
-                                                    <img src="<?=$document_url_clien?>58db701349cb48738069e8c912e2b3ac_result-150x150.jpg" alt="">
-                                                    <h2>cafe americano ... <span>$9</span><span>$9</span>
-                                                        <label class="font_size_text">the content it under</label></h2>
-                                                </li>
-                                                <li>
-                                                    <img src="<?=$document_url_clien?>58db701349cb48738069e8c912e2b3ac_result-150x150.jpg" alt="">
-                                                    <h2>cafe americano ... <span>$9</span><span>$9</span>
-                                                        <label class="font_size_text">the content it under</label></h2>
-                                                </li>
+                                                ';
+                                                if($i >= 3){
+                                                break;
+                                                }
+                                            }
+                                            ?>
                                             </ul>
                                         </div>
                                             <div class="row">
-                                                <header>home site</header>
-                                                <ul class="link_row">
+                                            <header><?=$list_cate[1]["name_EN"]?></header>
+                                            
+                                            <ul class="link_row">
+                                            <?php
+                                            $product=find_product_equal_id_cate($list_cate[1]["id_cate"]);
+                                            $i=0;
+                                            foreach($product as $key => $value){
+                                                extract($value);
+                                                $i++;
+                                                echo ' 
                                                 <li>
-                                                    <img src="<?=$document_url_clien?>58db701349cb48738069e8c912e2b3ac_result-150x150.jpg" alt="">
-                                                    <h2>cafe americano ... <span>$9</span><span>$9</span>
-                                                        <label class="font_size_text">the content it under</label></h2>
+                                                <img src="'.$content_url_image_ad.$image.'" alt="">
+                                                <h2>'.$name_EN.' ... <span>$'.number_format($price).'</span>
+                                                    <label class="font_size_text">the content it under</label></h2>
                                                 </li>
-                                                <li>
-                                                    <img src="<?=$document_url_clien?>58db701349cb48738069e8c912e2b3ac_result-150x150.jpg" alt="">
-                                                    <h2>cafe americano ... <span>$9</span><span>$9</span>
-                                                        <label class="font_size_text">the content it under</label></h2>
-                                                </li>
-                                                <li>
-                                                    <img src="<?=$document_url_clien?>58db701349cb48738069e8c912e2b3ac_result-150x150.jpg" alt="">
-                                                    <h2>cafe americano ... <span>$9</span><span>$9</span>
-                                                        <label class="font_size_text">the content it under</label></h2>
-                                                </li>
-                                                </ul>
+                                                ';
+                                                if($i >= 3){
+                                                break;
+                                                }
+                                            }
+                                            ?>
+                                            </ul>
                                             </div>
                                             <div class="row">
-                                                <header>home site</header>
-                                                <ul class="link_row">
+                                            <header><?=$list_cate[2]["name_EN"]?></header>
+                                            
+                                            <ul class="link_row">
+                                            <?php
+                                            $product=find_product_equal_id_cate($list_cate[2]["id_cate"]);
+                                            $i=0;
+                                            foreach($product as $key => $value){
+                                                extract($value);
+                                                $i++;
+                                                echo ' 
                                                 <li>
-                                                    <img src="<?=$document_url_clien?>58db701349cb48738069e8c912e2b3ac_result-150x150.jpg" alt="">
-                                                    <h2>cafe americano ... <span>$9</span><span>$9</span>
-                                                        <label class="font_size_text">the content it under</label></h2>
+                                                <img src="'.$content_url_image_ad.$image.'" alt="">
+                                                <h2>'.$name_EN.' ... <span>$'.number_format($price).'</span>
+                                                    <label class="font_size_text">the content it under</label></h2>
                                                 </li>
-                                                <li>
-                                                    <img src="<?=$document_url_clien?>58db701349cb48738069e8c912e2b3ac_result-150x150.jpg" alt="">
-                                                    <h2>cafe americano ... <span>$9</span><span>$9</span>
-                                                        <label class="font_size_text">the content it under</label></h2>
-                                                </li>
-                                                <li>
-                                                    <img src="<?=$document_url_clien?>58db701349cb48738069e8c912e2b3ac_result-150x150.jpg" alt="">
-                                                    <h2>cafe americano ... <span>$9</span><span>$9</span>
-                                                        <label class="font_size_text">the content it under</label></h2>
-                                                </li>
-                                                </ul>
+                                                ';
+                                                if($i >= 3){
+                                                break;
+                                                }
+                                            }
+                                            ?>
+                                            </ul>
                                             </div>
                                             
                                        </div>
@@ -149,8 +165,8 @@ require_once("../../global.php");
                         </ul>
                         <ul>
                             <li><a href="<?=$client_url?>/main_page/">shop</a></li>
-                            <li><a href="<?=$url_clien?>/main_page/?cart">card</a></li>
-                            <li><a href="<?=$url_clien?>/main_page/?contact">contact</a></li>
+                            <li><a href="<?=$client_url?>/main_page/?cart">card</a></li>
+                            <li><a href="<?=$client_url?>/main_page/?contact">contact</a></li>
                             <li class="searching_form"><i class="fas fa-search"></i></li>
                         </ul>
 
@@ -163,13 +179,12 @@ require_once("../../global.php");
    
     <section class="parent-filex2 ">
         <section class="filex">
-            <a href="<?=$url_clien?>/main_page/" class="brand-header"><img src="<?=$document_url_clien?>logo-e1592989828631.png" alt=""></a>
-           
+        <a href="<?=$client_url?>/main_page/" class="brand-header"><img src="<?=$content_url_image_client?>logo-e1592989828631.png" alt=""></a> 
             <div class="border-filex">
                 <div class="filex-content-bottom">
                     <div class="first_child_bottom">
                         <ul>
-                            <li><a href="#">home</a></li>
+                            <li><a href="<?=$client_url?>/main_page/main_home.php">home</a></li>
                             <li class="menu_home11" ><label class="menu_child">menu</label>
                                 <div class="menu-home"> 
                                   
@@ -180,17 +195,17 @@ require_once("../../global.php");
                                             <header>home site</header>
                                             <ul class="link_row">
                                             <li>
-                                                    <img src="<?=$document_url_clien?>58db701349cb48738069e8c912e2b3ac_result-150x150.jpg" alt="">
+                                                    <img src="<?=$content_url_image_client?>58db701349cb48738069e8c912e2b3ac_result-150x150.jpg" alt="">
                                                     <h2>cafe americano ... <span>$9</span><span>$9</span>
                                                         <label class="font_size_text">the content it under</label></h2>
                                                 </li>
                                                 <li>
-                                                    <img src="<?=$document_url_clien?>58db701349cb48738069e8c912e2b3ac_result-150x150.jpg" alt="">
+                                                    <img src="<?=$content_url_image_client?>58db701349cb48738069e8c912e2b3ac_result-150x150.jpg" alt="">
                                                     <h2>cafe americano ... <span>$9</span><span>$9</span>
                                                         <label class="font_size_text">the content it under</label></h2>
                                                 </li>
                                                 <li>
-                                                    <img src="<?=$document_url_clien?>58db701349cb48738069e8c912e2b3ac_result-150x150.jpg" alt="">
+                                                    <img src="<?=$content_url_image_client?>58db701349cb48738069e8c912e2b3ac_result-150x150.jpg" alt="">
                                                     <h2>cafe americano ... <span>$9</span><span>$9</span>
                                                         <label class="font_size_text">the content it under</label></h2>
                                                 </li>
@@ -199,42 +214,42 @@ require_once("../../global.php");
                                             <div class="row">
                                                 <header>home site</header>
                                                 <ul class="link_row">
-                                                <li>
-                                                    <img src="<?=$document_url_clien?>58db701349cb48738069e8c912e2b3ac_result-150x150.jpg" alt="">
+                                            <li>
+                                                    <img src="<?=$content_url_image_client?>58db701349cb48738069e8c912e2b3ac_result-150x150.jpg" alt="">
                                                     <h2>cafe americano ... <span>$9</span><span>$9</span>
                                                         <label class="font_size_text">the content it under</label></h2>
                                                 </li>
                                                 <li>
-                                                    <img src="<?=$document_url_clien?>58db701349cb48738069e8c912e2b3ac_result-150x150.jpg" alt="">
+                                                    <img src="<?=$content_url_image_client?>58db701349cb48738069e8c912e2b3ac_result-150x150.jpg" alt="">
                                                     <h2>cafe americano ... <span>$9</span><span>$9</span>
                                                         <label class="font_size_text">the content it under</label></h2>
                                                 </li>
                                                 <li>
-                                                    <img src="<?=$document_url_clien?>58db701349cb48738069e8c912e2b3ac_result-150x150.jpg" alt="">
+                                                    <img src="<?=$content_url_image_client?>58db701349cb48738069e8c912e2b3ac_result-150x150.jpg" alt="">
                                                     <h2>cafe americano ... <span>$9</span><span>$9</span>
                                                         <label class="font_size_text">the content it under</label></h2>
                                                 </li>
-                                                </ul>
+                                            </ul>
                                             </div>
                                             <div class="row">
                                                 <header>home site</header>
                                                 <ul class="link_row">
-                                                <li>
-                                                    <img src="<?=$document_url_clien?>58db701349cb48738069e8c912e2b3ac_result-150x150.jpg" alt="">
+                                            <li>
+                                                    <img src="<?=$content_url_image_client?>58db701349cb48738069e8c912e2b3ac_result-150x150.jpg" alt="">
                                                     <h2>cafe americano ... <span>$9</span><span>$9</span>
                                                         <label class="font_size_text">the content it under</label></h2>
                                                 </li>
                                                 <li>
-                                                    <img src="<?=$document_url_clien?>58db701349cb48738069e8c912e2b3ac_result-150x150.jpg" alt="">
+                                                    <img src="<?=$content_url_image_client?>58db701349cb48738069e8c912e2b3ac_result-150x150.jpg" alt="">
                                                     <h2>cafe americano ... <span>$9</span><span>$9</span>
                                                         <label class="font_size_text">the content it under</label></h2>
                                                 </li>
                                                 <li>
-                                                    <img src="<?=$document_url_clien?>58db701349cb48738069e8c912e2b3ac_result-150x150.jpg" alt="">
+                                                    <img src="<?=$content_url_image_client?>58db701349cb48738069e8c912e2b3ac_result-150x150.jpg" alt="">
                                                     <h2>cafe americano ... <span>$9</span><span>$9</span>
                                                         <label class="font_size_text">the content it under</label></h2>
                                                 </li>
-                                                </ul>
+                                            </ul>
                                             </div>
                                             
                                        </div>
@@ -246,7 +261,7 @@ require_once("../../global.php");
                         </ul>
                         <ul>
                             <li><a href="<?=$client_url?>/main_page/">shop</a></li>
-                            <li><a href="<?=$url_clien?>/main_page/?contact">contact</a></li>
+                            <li><a href="<?=$client_url?>/main_page/?contact">contact</a></li>
                             <li class="searching_form"><i class="fas fa-search"></i></li>
                         </ul>
 <!--  <li><a href="<?=$client_url?>/main_page/">shop</a></li>
@@ -287,7 +302,7 @@ require_once("../../global.php");
                             <div class="last-flex-child">
 
                                 <div>
-                                    <img src="<?=$document_url_clien?>noun_Coffee_3077892.png" alt="">
+                                    <img src="<?=$content_url_image_client?>noun_Coffee_3077892.png" alt="">
                                     <h2>coffe</h2>
                                 </div>
                                 <div>Cras chinwag brown bread Eaton cracking goal so I said a load of old tosh baking
@@ -302,7 +317,7 @@ require_once("../../global.php");
                             <div class="last-flex-child">
 
                                 <div>
-                                    <img src="<?=$document_url_clien?>bakery-icon.png" alt="">
+                                    <img src="<?=$content_url_image_client?>bakery-icon.png" alt="">
                                     <h2>BAKERY</h2>
                                 </div>
                                 <div>Cras chinwag brown bread Eaton cracking goal so I said a load of old tosh baking
@@ -317,7 +332,7 @@ require_once("../../global.php");
                             <div class="last-flex-child">
 
                                 <div>
-                                    <img src="<?=$document_url_clien?>noun_Breakfast_3357939.png" alt="">
+                                    <img src="<?=$content_url_image_client?>noun_Breakfast_3357939.png" alt="">
                                     <h2>BREAKFAST</h2>
                                 </div>
                                 <div>Cras chinwag brown bread Eaton cracking goal so I said a load of old tosh baking
@@ -338,14 +353,14 @@ require_once("../../global.php");
                     <p class="tag_p">Nesting close by to our Tiroran Estate, these legendary birds are the inspiration behind our
                         family-owned Whitetail brand. Just like its namesake,</p>
                        <div>
-                           <img src="<?=$document_url_clien?>signature-1-e1592385747477.png" alt="">
+                           <img src="<?=$content_url_image_client?>signature-1-e1592385747477.png" alt="">
                        </div>
                    </div>
                 </div>
                 <div class="child-service box2 ">
                    <div  id="list_image2">
-                            <div><img src="<?=$document_url_clien?>on-26WN7JR-683x1024.jpg" alt=""></div>
-                            <div><img src="<?=$document_url_clien?>P4TJEQG-683x1024.jpg" alt=""></div>
+                            <div><img src="<?=$content_url_image_client?>on-26WN7JR-683x1024.jpg" alt=""></div>
+                            <div><img src="<?=$content_url_image_client?>P4TJEQG-683x1024.jpg" alt=""></div>
                    </div>
             </div>
             </div>
@@ -364,8 +379,8 @@ require_once("../../global.php");
                 </div>
                 <div class="child-service box2 ">
                    <div  id="list_image2">
-                            <div><img src="<?=$document_url_clien?>on-26WN7JR-683x1024.jpg" alt=""></div>
-                            <div><img src="<?=$document_url_clien?>P4TJEQG-683x1024.jpg" alt=""></div>
+                            <div><img src="<?=$content_url_image_client?>on-26WN7JR-683x1024.jpg" alt=""></div>
+                            <div><img src="<?=$content_url_image_client?>P4TJEQG-683x1024.jpg" alt=""></div>
                    </div>
             </div>
             </div>
@@ -382,13 +397,13 @@ require_once("../../global.php");
                             <p class="tag_p">Nesting close by to our Tiroran Estate, these legendary birds are the inspiration behind our
                                 family-owned Whitetail brand. Just like its namesake,</p>
                                 <div>
-                                    <img src="<?=$document_url_clien?>signature-1-e1592385747477.png" alt="">
+                                    <img src="<?=$content_url_image_client?>signature-1-e1592385747477.png" alt="">
                                 </div>
                            </div>
                     </div>
                     <div class="box box2-footer"></div>
                     <div id="brand-footer">
-                        <img src="<?=$document_url_clien?>since_1997.png" alt="">
+                        <img src="<?=$content_url_image_client?>since_1997.png" alt="">
                     </div>
             </div>
             <footer>
@@ -397,13 +412,13 @@ require_once("../../global.php");
                             <div>
                                 <div class="image-footer-center part1">
                                    <div>
-                                    <img src="<?=$document_url_clien?>icon_vintage_compass.png" alt="">
+                                    <img src="<?=$content_url_image_client?>icon_vintage_compass.png" alt="">
                                     <p><label>Openning Hours</label><br>11.30AM – 2.30PM</p>
                                    </div>
                                 </div>
                                 <div class="image-footer-center">
                                     <div>
-                                        <img src="<?=$document_url_clien?>icon_vintage_phone.png" alt="">
+                                        <img src="<?=$content_url_image_client?>icon_vintage_phone.png" alt="">
                                         <p><label>Openning Hours</label><br>11.30AM – 2.30PM</p>
                                     </div>
                                 </div>

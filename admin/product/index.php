@@ -102,12 +102,16 @@ else if(exist_param("delete_product")){
     }
     $VIEW_NAME="product/list_product.php";
 }
-else{
+else if(exist_param("add_categoty")){
     $list_cate=list_cate();
     // echo "<pre>";
     // print_r($list_cate);
     // echo "</pre>";
     $VIEW_NAME="product/add_product.php";
+}
+else{
+    $list_product=hang_hoa_sildeshow();
+    $VIEW_NAME="product/list_product.php";
 }
 
 

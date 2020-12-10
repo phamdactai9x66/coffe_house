@@ -26,13 +26,13 @@ if(isset($_SESSION["cart"]) and !empty($_SESSION["cart"])){
               
                 $quantily_all+=$quantily_one;
                 if($image == "img.png" or $image == "" ){
-                    $image=$document_url_admin.$image;
+                    $image=$content_url_image_ad.$image;
                    }else{
-                       $image=$document_url_admin.$image;
+                       $image=$content_url_image_ad.$image;
                    }
                 $table.='
                 <tr>
-                <td><a href="http://localhost:8090/text/coffe-house/client/product/cart.php?remove='.$id_product.'"><i class="fas fa-times"></i></a></td>
+                <td><a href="'.$client_url.'/product/cart.php?remove='.$id_product.'"><i class="fas fa-times"></i></a></td>
                 <td><img src="'.$image.'" alt=""></td>
                 <td> <label>'.$name_EN.'</label> 
                 </td>
@@ -61,7 +61,7 @@ if(isset($_SESSION["cart"]) and !empty($_SESSION["cart"])){
 <body>
 <section class="main-center">
                 <div class="list_detail_bill">
-                       <form action="<?=$url_clien?>/product/cart.php" method="post">
+                       <form action="<?=$client_url?>/product/cart.php" method="post">
                             <table>
                                 <thead>
                                     <tr>
@@ -105,14 +105,14 @@ if(isset($_SESSION["cart"]) and !empty($_SESSION["cart"])){
 
                            
                            ?>
-                           <form class="form_buy" action="<?=$url_clien?>/product/cart.php" method="post" style="width:100%;">
+                           <form class="form_buy" action="<?=$client_url?>/product/cart.php" method="post" style="width:100%;">
                            <input type="submit" name="buy_now" value="proceed to checkout" >
                            <input type="hidden" name="quantily_all" value="<?=$quantily_all?>">
                           
                            
                          </form>
                             <?php }else{?>
-                                <form class="form_buy" action="<?=$url_clien?>/main_page/?account&login" method="post" style="width:100%;">
+                                <form class="form_buy" action="<?=$client_url?>/main_page/?account&login" method="post" style="width:100%;">
                             
                             
                                 <input type="submit" value="Login to buy product" >

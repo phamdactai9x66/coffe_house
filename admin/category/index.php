@@ -102,8 +102,16 @@ if(exist_param("insert_cate")){
         $check->getMessgae();
     }
     $VIEW_NAME="category/list_cate.php";
-}else{
+}else if(exist_param("add_categoty")){
     $VIEW_NAME="category/add_categoty.php";
+}
+else{
+    $list_cate=list_cate();
+    //    echo "<pre>";
+    //     print_r($list_cate);
+    //     echo "</pre>";
+    //    extract($list_cate);
+       $VIEW_NAME="category/list_cate.php";
 }
    
     

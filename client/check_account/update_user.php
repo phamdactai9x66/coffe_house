@@ -31,11 +31,11 @@ if(exist_param("update")){
     catch (PDOException $check) {
         echo $check->getMessage();
     }
-    header("location: http://localhost:8090/text/coffe-house/client/main_page/?account&update_user");
+   
 }
 else{
     $_SESSION["user"];
-    // header("location: http://localhost:8090/text/coffe-house/client/main_page/?account&update_user");
+    
 }
-
+header("location: ".$client_url."/main_page/?account&update_user");
 

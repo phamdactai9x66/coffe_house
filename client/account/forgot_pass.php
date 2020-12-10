@@ -112,7 +112,7 @@ if(isset($post_username)){
                         <tfoot>
                             <tr style="border: none;">
                                 <td colspan="4"><a class="button" href="#popup1" style="color: black;" >
-                                <a href="<?=$url_clien?>/main_page/?account&login" style="color:black;">Cancel</a></td>
+                                <a href="<?=$client_url?>/main_page/?account&login" style="color:black;">Cancel</a></td>
                                 <td colspan="4"><input type="submit" value="NEXT" name="post_username"></td>
                             </tr>
                         </tfoot>

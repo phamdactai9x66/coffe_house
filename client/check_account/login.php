@@ -31,7 +31,7 @@ if(exist_param("btn_login")){
                     $_SESSION["user"] = $user;
                     
                     echo "dang nhap dung";
-                    header("location: http://localhost:8090/text/coffe-house/client/main_page/");
+                    header("location: ".$client_url."/main_page/");
                     die();
             
         }else{
@@ -41,6 +41,11 @@ if(exist_param("btn_login")){
             die();
         }
     
+    }else{
+         header("location: ".$client_url."/main_page/?account&login");
+        echo "dang nhap sai31231";
+        // header("http://localhost:8090/text/coffe-house/client/main_page/?account&login");
+            // $VIEW_NAME="account/login.php";
     }
 }
 else{
@@ -54,9 +59,8 @@ else{
     $ma_kh = get_cookie("username");
     // $mat_khau = get_cookie("mat_khau");
 
-    header("location: http://localhost:8090/text/coffe-house/client/main_page/");
-    
-   
+    header("location: ".$client_url."/main_page/main_home.php");
+
 }
 
 

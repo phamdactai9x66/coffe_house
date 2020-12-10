@@ -11,9 +11,9 @@
                             return;
                         }
                             if($image == "img.png" or $image == "" ){
-                                $image=$document_url_admin.$image;
+                                $image=$content_url_image_ad.$image;
                             }else{
-                                $image=$document_url_admin.$image;
+                                $image=$content_url_image_ad.$image;
                             }
                             echo '  <li>
                             <a href="'.$client_url.'/product/?id_product='.$id_product.'">
@@ -23,7 +23,7 @@
                             <label for="" class="count_money">$'.$price *  (float)$discount.'</label></p>
                         
                             </a>
-                            <a href="#" id="hello">ADD TO CART</a>
+                            <a href="'.$client_url.'/product/?id_product='.$id_product.'" id="hello">ADD TO CART</a>
                         </li>';
                        
                     }
