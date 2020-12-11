@@ -1,9 +1,11 @@
+<?php
+
+extract($_REQUEST);
+$list_bill=list_detail_bill($id_bill);
+?>
 
 <div class="list_something">
-                        <form action="" method="post" class="searching_element">
-                            <input type="text" name="" id="searching" placeholder="searching">
-                            
-                        </form>
+                        
                         <table id="table_parent2">
                             <thead>
                                 <tr>
@@ -49,5 +51,6 @@
                             </tbody>
                             
                         </table>
-                        <a href="?add_categoty" class="submit">back</a>
+                        <a href="<?=$client_url?>/main_page/?account&history_cart" class="submit">back</a>
                     </div>
+

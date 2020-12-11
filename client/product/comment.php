@@ -7,7 +7,9 @@
                 <div class="list_comment_parent">
                 <?php
               
-                
+                // echo "<pre>";
+                // print_r($_POST);
+                // echo "</pre>";
                 
                 if(isset($_POST["post_comment"])){
                     if(isset($_POST["content"])){
@@ -22,8 +24,8 @@
                        
                        //$content,$id_product,$id_kh,$date
                         if(!empty($_POST["content"])){
-                            insert_comment($_POST["content"],$id_product, $_SESSION['user']["id_kh"], $ngay_bl);
-                            $list_comment=list_comment($id_product);
+                            insert_comment($_POST["content"],$_GET["id_product"], $_SESSION['user']["id_kh"], $ngay_bl);
+                            $list_comment=list_comment($_GET["id_product"]);
                            
                         }else{
                             echo "ban chua nhap vao comment";
@@ -38,7 +40,9 @@
                 }
               
                
-
+                // echo '<pre>';
+                // print_r($list_comment);
+                // echo "</pre>";
                     foreach($list_comment as $key => $value){
                         extract($value);
                         if(empty($image)){
@@ -56,6 +60,7 @@
                          <p><i>'.$fullname.'</i><br> <label>'.$content.'</label></p>
                      </div>';
                     }
+                  
                 ?>
                 </div>
                 <div class="create_comment">

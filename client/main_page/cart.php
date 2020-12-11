@@ -3,6 +3,14 @@
 // echo "<pre>";
 // print_r($_SESSION);
 // echo "</pre>";
+// echo "<pre>";
+// print_r($_POST);
+// echo "</pre>";
+if (isset($_GET['remove']) && is_numeric($_GET['remove']) && isset($_SESSION['cart']) && isset($_SESSION['cart'][$_GET['remove']])) {
+    
+    unset($_SESSION['cart'][$_GET['remove']]);
+    // header("location: '.$client_url.'/main_page/?cart");
+}
 $quantily_one=$quantily_all=0;
 $table="";
 if(isset($_SESSION["cart"]) and !empty($_SESSION["cart"])){
@@ -32,7 +40,7 @@ if(isset($_SESSION["cart"]) and !empty($_SESSION["cart"])){
                    }
                 $table.='
                 <tr>
-                <td><a href="'.$client_url.'/product/cart.php?remove='.$id_product.'"><i class="fas fa-times"></i></a></td>
+                <td><a href="?cart&remove='.$id_product.'"><i class="fas fa-times"></i></a></td>
                 <td><img src="'.$image.'" alt=""></td>
                 <td> <label>'.$name_EN.'</label> 
                 </td>
@@ -44,11 +52,7 @@ if(isset($_SESSION["cart"]) and !empty($_SESSION["cart"])){
           
         } 
 }
-// if (isset($_GET['remove']) && is_numeric($_GET['remove']) && isset($_SESSION['cart']) && isset($_SESSION['cart'][$_GET['remove']])) {
-    
-//     unset($_SESSION['cart'][$_GET['remove']]);
-//     header("location: http://localhost:8090/text/coffe-house/client/main_page/?cart");
-// }
+
 ?>
 
 <!DOCTYPE html>

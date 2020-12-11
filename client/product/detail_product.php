@@ -1,3 +1,9 @@
+<?php
+// echo "<pre>";
+// print_r($list_comment);
+// echo "</pre>";
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -29,10 +35,10 @@
                     <p><?=$content?></p>
                         <form action="cart.php" method="post">
                         <!-- so luogn san pham -->
-                            <input type="number" class="number1" name="quantily" min="1" max="<?=$quantily?>" value="1">
+                            <input type="number" class="number1" name="quantily" min="1" max="<?=$find_product["quantily"]?>" value="1">
                               <!-- so luogn san pham -->
-                            <input type="hidden" name="id_product" value="<?=$id_product?>">
-                            <input type="submit" class="submit2"  value="ADD TO CART">
+                            <input type="hidden" name="id_product" value="<?=$find_product["id_product"]?>">
+                            <input type="submit" class="submit2" name="post_to_cart"  value="ADD TO CART">
                             <!-- id_product -->
                         </form>
                  </div>
@@ -44,11 +50,15 @@
         
     <!-- comment -->
     <?php
-    require "comment.php";
+    // echo "<pre>";
+    // print_r($_REQUEST);
+    // echo "</pre>";
+    // echo $_GET["id_product"];
+    require_once "comment.php";
     ?>
     
     <?php
-    require "related_product.php";
+    require_once "related_product.php";
     ?>
     <!-- product related -->
       

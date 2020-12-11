@@ -12,6 +12,8 @@ if(exist_param("cart")){
     $VIEW_NAME="main_page/cart.php";
 }else if(exist_param("account")){
     require_once("../../dao/user-kh.php");
+    require_once("../../dao/bill.php");
+    require_once("../../dao/detail_bill.php");
     // echo $document_root.$client_url."/account/";
     $VIEW_NAME="account/index.php";
 }

@@ -5,6 +5,12 @@ require_once("function_pdo.php");
         FROM bill  bl INNER JOIN user_kh kh on kh.id_kh= bl.id_user";
         return select_all($sql);
     }
+    function history_cart_user($id_user){
+        $sql="SELECT bl.id_bill,kh.sex,bl.id_user, kh.fullname,kh.image,bl.total_money,bl.time_post
+        FROM bill  bl INNER JOIN user_kh kh on kh.id_kh= bl.id_user
+        WHERE bl.id_user = ?";
+        return select_all($sql,$id_user);
+    }
     function delete_bill($id_bill){
         $sql="DELETE FROM `bill` 
         WHERE id_bill =?";

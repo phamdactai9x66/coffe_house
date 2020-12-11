@@ -20,7 +20,7 @@ if(empty($image)){
 <body>
 <section class="main-center">
 
-            <form action="<?=$url_clien?>/check_account/update_user.php" method="post" class="list_detail_bill" enctype="multipart/form-data">
+            <form action="<?=$client_url?>/check_account/update_user.php" method="post" class="list_detail_bill" enctype="multipart/form-data">
                 <div>
                     <table>
                         <thead>

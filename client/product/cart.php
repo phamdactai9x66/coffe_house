@@ -48,11 +48,11 @@ if(exist_param("buy_now")){
     
   
 }
-if (isset($_POST['id_product'], $_POST['quantily']) && is_numeric($_POST['id_product']) && is_numeric($_POST['quantily'])) {
+if ( isset($_POST['id_product'], $_POST['quantily']) && isset($_POST["post_to_cart"])) {
   
     $product_id = (int)$_POST['id_product'];
     $quantity = (int)$_POST['quantily'];
-    $check_product=find_product($id_product);
+    $check_product=find_product($product_id);
    
     if ($check_product && $quantity > 0) {
        
@@ -70,16 +70,19 @@ if (isset($_POST['id_product'], $_POST['quantily']) && is_numeric($_POST['id_pro
         }
     }
 
-    header('location: '.$client_url.'/product/?id_product='.$id_product.'');
+    header('location: '.$client_url.'/product/?id_product='.$product_id.'');
     // Prevent form resubmission...
     // header('location: index.php?page=cart');
     // exit;
+}else{
+    echo "error";
 }
-if (isset($_GET['remove']) && is_numeric($_GET['remove']) && isset($_SESSION['cart']) && isset($_SESSION['cart'][$_GET['remove']])) {
+
+// if (isset($_GET['remove']) && is_numeric($_GET['remove']) && isset($_SESSION['cart']) && isset($_SESSION['cart'][$_GET['remove']])) {
     
-    unset($_SESSION['cart'][$_GET['remove']]);
-    header("location: '.$client_url.'/main_page/?cart");
-}
+//     unset($_SESSION['cart'][$_GET['remove']]);
+//     header("location: '.$client_url.'/main_page/?cart");
+// }
 
 if (isset($_POST['update_list_cart']) && isset($_SESSION['cart'])) {
 
@@ -97,6 +100,4 @@ if (isset($_POST['update_list_cart']) && isset($_SESSION['cart'])) {
    
     header('location: '.$client_url.'/main_page/?cart');
     exit;
-}else{
-    header('location: '.$client_url.'/main_page/?cart');
 }

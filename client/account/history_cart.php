@@ -1,18 +1,38 @@
+<?php
+// echo "xin chao";
+// echo "<pre>";
+// print_r($_SESSION["user"]["id_kh"]);
+// echo "</pre>";
+if(isset($_SESSION["user"]["id_kh"])){
+    
 
-<div class="list_something">
-                        <form action="" method="post" class="searching_element">
-                            <input type="text" name="" id="searching" placeholder="searching">
-                            
-                        </form>
+$list_bill=history_cart_user($_SESSION["user"]["id_kh"]);
+
+
+// echo "<pre>";
+// print_r($list_cate);
+// echo "</pre>";
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="" class="css">
+    <link rel="stylesheet" href="<?=$content_url?>/client/css/bill_user.css" class="css">
+</head>
+<body>
+
                         <table id="table_parent2">
                             <thead>
                                 <tr>
                                     
                                     <th>id</th>
-                                    <th>name_VN</th>
+                                    <th>fullname</th>
                                     <th>image</th>
-                                    <th>quantily</th>
-                                    <th>prict</th>
+                                    <th>total_money</th>
+                                    <th>time_post</th>
                                     <th></th>
                                 </tr>
                             </thead>
@@ -34,20 +54,28 @@
                                         echo '
                                         <tr>
                                         <td>'.$i.' </td>
-                                        <td class="name_eng">'.$name_VN.'</td>
+                                        <td class="name_eng">'.$fullname.'</td>
                                         <td><img src="'.$image.'" alt=""></td>
-                                        <td>'.$quantily.'</td>
-                                        <td>'.number_format($prict).'VND</td>
-                                       
-                                        <td style="text-align: center;"><a href="?delete_bill_part2&id_product_bill='.$id_detail_bill.'&id_bill_1='.$id_bill.'" class="delete_element">xoa</a></td>
+                                        <td>'.number_format($total_money).'VND</td>
+                                        <td>'.$time_post.'</td>
+                                        <td style="text-align: center;"><a href="?delete_bill&id_bill_1='.$id_bill.'" class="delete_element">xoa</a>
+                                         <a href="'.$client_url.'/main_page/?account&detaill_bill&id_bill='.$id_bill.'" class="edit_element">detail_bill</a></td>
                                     </tr>';
                                     }
                                 ?>
-                                    
+                                    <img src="" alt="">
 
                                    
                             </tbody>
                             
                         </table>
-                        <a href="?add_categoty" class="submit">back</a>
+                      
                     </div>
+</body>
+</html>
+<?php
+}else{
+    echo "you need login to check history cart";
+}
+?>
+                       

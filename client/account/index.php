@@ -18,6 +18,14 @@ else if(exist_param("forgot_pass") ){
   
     $VIEW_NAME="account/forgot_pass.php";
 }
+else if(exist_param("history_cart") ){
+  
+    $VIEW_NAME="account/history_cart.php";
+}
+else if(exist_param("detaill_bill") ){
+  
+    $VIEW_NAME="account/detaill_bill.php";
+}
 else if(exist_param("update_user") ){
     // echo "<pre>";
     // print_r($_SESSION);

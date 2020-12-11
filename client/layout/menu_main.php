@@ -12,7 +12,7 @@ $list_cate=list_cate();
                     <div class="box2 genaral"> <i class="far fa-clock"></i> OPENNING HOURS 11.30AM – 2.30PM</div>
                     <ul class="box3 genaral">
                             <li><a href="<?=$client_url?>/main_page/">home</a></li>
-                            <li><a href="<?=$client_url?>/main_page/?cart">card</a></li>
+                            <li><a href="<?=$client_url?>/main_page/?cart">cart</a></li>
                             <li><a href="<?=$client_url?>/main_page/?contact">contact</a></li>
                             <li class="menu_home11"><a href="#">menu</a><i class="fas fa-angle-down"></i>
                                 <div class="menu-home"> 
@@ -106,7 +106,7 @@ $list_cate=list_cate();
                                         //$_SESSION["user"]["id_kh"]
                                         //http://localhost:8090/text/coffe-house/admin/main_page/
                                         if(isset($_SESSION["user"])){
-                                            echo ' <li><a href="'.$client_url.'/check_account/login.php'.'">Logout</a></li>
+                                            echo ' <li><a href="'.$client_url.'/check_account/login.php">Logout</a></li>
                                             <li><a href="'.$client_url.'/main_page/?account&update_user">Edit account</a></li>';
                                             if($_SESSION["user"]["role"] == 1){
                                                echo ' <li><a href="'.$admin_url.'/main_page/">admin</a></li>';
@@ -125,8 +125,8 @@ $list_cate=list_cate();
                                         
                                 </ul>
                         </div>
-                       <a href="#"> <i class="fab fa-facebook"></i></a>
-                       <a href="#"> <i class="fab fa-instagram-square"></i></a>
+                        <a href="<?=$client_url?>/main_page/?account&history_cart"><i class="fas fa-shopping-cart"></i></a>
+                        <a href="#"> <i class="fab fa-facebook"></i></a>
                        
                         <div class="searching_form"><i class="fas fa-search"></i></div>
                     </div>
