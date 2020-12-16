@@ -1,5 +1,7 @@
 <?php
 // var_dump($info_user["image"]);
+$info_user= select_user_one($_SESSION["user"]["id_kh"]);
+extract($info_user);
 if(empty($image)){
     if($sex == 1){
        $image="".$content_url_image_ad."undraw_male_avatar_323b%20(1).png";
@@ -9,6 +11,10 @@ if(empty($image)){
  }else{
      $image=$content_url_image_ad.$image;
  }
+//  echo "<pre>";
+//  print_r($_SESSION["user"]);
+//  echo "</pre>";
+
 ?>
 <!DOCTYPE html>
 <html lang="en">

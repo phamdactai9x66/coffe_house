@@ -3,12 +3,16 @@
   // echo "<pre>";
   // print_r($_SESSION);
   // echo "</pre>";
+//  echo "<pre>";
+//             print_r($_POST);
+//             echo "</pre>";
   $error=[];
   $test="";
   $gmail_to=$title=$message=$from_gmail=$brand_web="";
 //   echo "<pre>";
 //   print_r($_POST);
 //   echo "</pre>";
+// echo check_gmail($_POST["post_email"]);
   if( isset($_POST["post_contact"])){
     //   die('xcvbcxcxc');
       $gmail_to=htmlspecialchars($_POST["post_email"]);
@@ -16,21 +20,20 @@
       $message=htmlspecialchars($_POST["content"]);
     
     
-      if(empty($gmail_to)){
-          $error[]="ban quen chua nhap gmail";
+      if(!check_gmail($gmail_to) or empty($gmail_to)){
+          $error[]="Ban chua nhap dung dinh dang gmail";
       }
-      
-      
-      if(empty($title)){
-          $error[]="ban quen chua nhap title";
+      if(!check_title($title) or empty($title)){
+          $error[]="Ban chua nhap dung dinh dang title";
       }
-      if(empty($message)){
-          $error[]="ban quen chua nhap message";
+      if(!check_comment($message) or empty($message)){
+          $error[]="Ban chua nhap dung dinh dang message";
       }
       if(empty($error)){
-          // echo "<pre>";
-          // print_r($_POST);
-          // echo "</pre>";
+          echo "thanh cong";
+        //   echo "<pre>";
+        //   print_r($_POST);
+        //   echo "</pre>";
           $SENDGRID_API_KEY='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';
          
           $email = new \SendGrid\Mail\Mail();
@@ -54,9 +57,7 @@
                   $test="loi gmail";
               }
             //   unset($_POST);
-            // echo "<pre>";
-            // print_r($_POST);
-            // echo "</pre>";
+           
            
             //   print $response->statusCode() . "\n";
             //   print_r($response->headers());
@@ -70,6 +71,7 @@
           // echo "</pre>";
       }else{
           $test=implode("<br />",$error);
+          echo $test;
       }
   }
 
@@ -83,6 +85,7 @@
 </head>
 <body>
 <section id="parent-sevice">
+    
             <div id="flex-service">
                 <div class="box1">
                     <div class="text_lg">

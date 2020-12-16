@@ -27,17 +27,9 @@ else if(exist_param("detaill_bill") ){
     $VIEW_NAME="account/detaill_bill.php";
 }
 else if(exist_param("update_user") ){
-    // echo "<pre>";
-    // print_r($_SESSION);
-    // echo "</pre>";
-    $info_user= select_user_one($_SESSION["user"]["id_kh"]);
-    extract($info_user);
-    // echo "<pre>";
-    // print_r($info_user);
-    // echo "</pre>";
-    // echo "<pre>";
-    // print_r($_POST);
-    // echo "</pre>";
+  
+   
+   
     $VIEW_NAME="account/update_user.php";
 }
 require("../layout.php");

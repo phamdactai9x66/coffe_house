@@ -1,312 +1,108 @@
-.main_center .main_ad {
-    max-width: 1470px;
-    margin: 0 auto;
-    margin-top: 20px;
-    border: 1px solid black;
-  }
-  
-  .main_center .main_ad > div:nth-child(1) {
-    -webkit-box-flex: 1;
-        -ms-flex: 1 40%;
-            flex: 1 40%;
-  }
-  
-  .main_center .main_ad > div:nth-child(2) {
-    -webkit-box-flex: 1;
-        -ms-flex: 1 60%;
-            flex: 1 60%;
-  }
-  
-  .main_center .main_ad input[type="submit"], .main_center .main_ad button, .main_center .main_ad .submit {
-    margin-top: 20px;
-    margin-left: 5px;
-    padding: 12px 20px;
-    background-color: #4CAF50;
-    color: white;
-    border-radius: 4px;
-    outline: 0;
-    border: 0.1px solid gray;
-  }
-  
-  .main_center .main_ad .create_something {
-    width: 70%;
-    margin: 0 auto;
-    background-color: #ebe1e1;
-    padding: 20px;
-    border-radius: 4px;
-  }
-  
-  .main_center .main_ad .create_something form {
-    width: 100%;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-orient: horizontal;
-    -webkit-box-direction: normal;
-        -ms-flex-flow: row wrap;
-            flex-flow: row wrap;
-  }
-  
-  .main_center .main_ad .create_something form label {
-    display: inline-block;
-  }
-  
-  .main_center .main_ad .create_something form label::first-letter {
-    text-transform: uppercase;
-  }
-  
-  .main_center .main_ad .create_something form label {
-    display: block;
-  }
-  
-  .main_center .main_ad .create_something form .submit_bottom {
-    padding: 0;
-    -webkit-box-flex: 1;
-        -ms-flex: 1 100%;
-            flex: 1 100%;
-  }
-  
-  .main_center .main_ad .create_something form div {
-    display: inline-block;
-    width: 50%;
-    padding: 0 5px;
-  }
-  
-  .main_center .main_ad .create_something form div .check_radio {
-    width: 100%;
-    padding: 9px;
-    border-radius: 4px;
-    border: 0.1px solid gray;
-    background-color: white;
-  
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-pack: justify;
-        -ms-flex-pack: justify;
-            justify-content: space-between;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
-  }
-  
-  .main_center .main_ad .create_something form div .check_radio label{
-    -webkit-box-flex: 1;
-        -ms-flex: 1 50%;
-            flex: 1 50%;
-  }
-  
-  .main_center .main_ad .create_something form div .check_radio p::first-letter {
-    text-transform: uppercase;
-  }
-  
-  .main_center .main_ad .create_something form div .check_radio label input {
-    display: inline-block;
-    vertical-align: middle;
-    margin-left: 5px;
-  }
-  
-  .main_center .main_ad .create_something form input[type="text"],
-  .main_center .main_ad .create_something form input[type="email"],
-   .main_center .main_ad .create_something form input[type="number"], .main_center .main_ad .create_something form input[type="file"]
-   , .main_center .main_ad .create_something form input[type="password"],.main_center .main_ad .create_something form input[type="date"]{
-    display: block;
-    width: 100%;
-    padding: 12px;
-    margin-right: 10px;
-    border-radius: 3px;
-    outline: 0;
-    background-color: white;
-    border: 0.1px solid gray;
-  }
-  .main_center .main_ad .create_something form input[type="file"],.main_center .main_ad .create_something form input[type="date"]{
-    padding: 10px;
-   
-  }
-  .main_center .main_ad .create_something form textarea {
-    display: block;
-    height: 70px;
-    width: 100%;
-    padding: 12px;
-    margin: 6px 0 16px 0;
-    border-radius: 3px;
-    outline: 0;
-    border: 0.1px solid gray;
-   
-  }
-  
-  .main_center .main_ad .create_something form select {
-    display: block;
-    margin: 6px 0 16px 0;
-    padding: 8px 16px;
-    background-color: DodgerBlue;
-    color: white;
-    padding-right: 50px;
-    outline: 0;
-    border: 0;
-    border-radius: 4px;
-    font-size: 1.1rem;
-  }
-  .main_center .main_ad .create_something form div > .select_inside_div{
-    display: block;
-    /* margin: 6px 0 16px 0; */
-    padding: 10px 16px;
-    background-color: DodgerBlue;
-    color: white;
-    padding-right: 50px;
-    outline: 0;
-    border: 0;
-    border-radius: 4px;
-    font-size: 1.1rem;
-    margin-top: 2px;
-  }
-  
-  
-  .main_center .main_ad .list_something {
-    padding: 20px;
-  }
-  
-  .main_center .main_ad .list_something .searching_element {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-pack: justify;
-        -ms-flex-pack: justify;
-            justify-content: space-between;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
-    margin-bottom: 15px;
-  }
-  .paginnation {
-    margin-top: 10px;
-    min-width: 600px;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
-  }
-  
-  .paginnation li {
-    list-style-type: none;
-    margin: 0 10px;
-  }
-  
-  .paginnation li a {
-    display: block;
-    padding: 10px 20px;
-    text-decoration: none;
-    color: black;
-  }
-  
-  .paginnation li a:hover {
-    background-color: #4093d6;
-    color: white;
-  }
-  
-  .main_center .main_ad .list_something .searching_element input {
-    display: block;
-    padding: 8px;
-    border: 0.1px solid black;
-    border-radius: 4px;
-    height: 40px;
-    outline: 0;
-  }
-  
-  .main_center .main_ad .list_something .searching_element select {
-    display: block;
-    margin: 6px 0 16px 0;
-    padding: 8px 16px;
-    background-color: DodgerBlue;
-    color: white;
-    padding-right: 50px;
-    outline: 0;
-    border: 0;
-    border-radius: 4px;
-    font-size: 1.1rem;
-  }
-  
-  .main_center .main_ad .list_something table {
-    width: 100%;
-    border-collapse: collapse;
-    border-radius: 4px;
-    overflow: hidden;
-  }
-  
-  .main_center .main_ad .list_something table thead tr {
-    background-color: black;
-    color: white;
-  }
-  
-  .main_center .main_ad .list_something table thead tr th {
-    padding: 20px 10px;
-    font-weight: 400;
-    text-align: left;
-  }
-  
-  .main_center .main_ad .list_something table tbody tr td, .main_center .main_ad .list_something table tfoot tr td {
-    padding: 10px;
-    border-bottom: 0.1px solid black;
-  }
-  
-  .main_center .main_ad .list_something table tbody tr {
-    -webkit-transition: all 0.3s ease-in-out;
-    transition: all 0.3s ease-in-out;
-    width: 100%;
-    background-color: white;
-  }
-  
-  .main_center .main_ad .list_something table tbody i {
-    cursor: pointer;
-    border-radius: 100%;
-    font-size: 1.2rem;
-  }
-  
-  .main_center .main_ad .list_something table tbody i:hover {
-    color: red;
-  }
-  
-  .main_center .main_ad .list_something table tbody img {
-    width: 70px;
-    height: 70px;
-    object-fit: cover;
-    border-radius: 100%;
-  }
-  
-  .main_center .main_ad .list_something table tbody input {
-    width: 55px;
-    height: 80px;
-    font-size: 1.1rem;
-    font-weight: 400;
-    text-align: center;
-    border: 0;
-    outline: 0;
-  }
-  
-  .main_center .main_ad .list_something table tbody .flex_parent {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-  }
-  
-  .main_center .main_ad .list_something table tbody .delete_element, .main_center .main_ad .list_something table tbody .edit_element {
-    margin-left: 20px;
-    padding: 5px 10px;
-    padding-bottom: 8px;
-    border-radius: 3px;
-    color: white;
-  }
-  
-  .main_center .main_ad .list_something table tbody .delete_element {
-    background-color: #c43140;
-  }
-  
-  .main_center .main_ad .list_something table tbody .edit_element {
-    background-color: #4CAF50;
-  }
-  /*# sourceMappingURL=admin.css.map */
+.main-center {
+  max-width: 1170px;
+  margin: 0 auto;
+  margin-top: 70px;
+}
+
+.main-center .list_detail_bill {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.main-center .list_detail_bill form {
+  width: 100%;
+  border: 1px solid black;
+}
+
+.main-center .list_detail_bill form table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.main-center .list_detail_bill form table thead tr {
+  background-color: black;
+  color: white;
+}
+
+.main-center .list_detail_bill form table thead tr th {
+  padding: 12px 15px;
+  font-weight: 400;
+  text-align: left;
+}
+
+.main-center .list_detail_bill form table tbody tr td, .main-center .list_detail_bill form table tfoot tr td {
+  padding: 10px;
+ 
+}
+
+.main-center .list_detail_bill form table thead tr, .main-center .list_detail_bill form table tbody tr, .main-center .list_detail_bill form table tfoot tr {
+  border: 1px solid black;
+}
+
+.main-center .list_detail_bill form table tbody tr {
+  width: 100%;
+}
+.main-center .list_detail_bill form table tbody tr td i,.main-center .list_detail_bill form table tbody tr td a{
+  color: black;
+ 
+}
+.main-center .list_detail_bill form table tbody tr td i{
+  padding-right: 5px;
+
+ 
+}
+.main-center .list_detail_bill form table tbody tr:nth-last-child(1){
+  border-bottom: 0;
+}
+
+.main-center .list_detail_bill form table tbody i {
+  cursor: pointer;
+  border-radius: 100%;
+  font-size: 1.2rem;
+}
+
+.main-center .list_detail_bill form table tbody i:hover {
+  color: red;
+}
+
+.main-center .list_detail_bill form table tbody img {
+  width: 70px;
+  height: 70px;
+}
+
+.main-center .list_detail_bill form table tbody input {
+  width: 55px;
+  height: 80px;
+  font-size: 1.1rem;
+  font-weight: 400;
+  text-align: center;
+  border: 0;
+  outline: 0;
+}
+
+.main-center .list_detail_bill form table tfoot {
+  text-align: left;
+  color: white;
+}
+
+.main-center .list_detail_bill form table tfoot a {
+  padding: 13px 25px;
+  text-transform: uppercase;
+  font-weight: 400;
+  background-color: black;
+  color: white;
+  border: 1px solid black;
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+  outline: 0;
+}
+
+.main-center .list_detail_bill form table tfoot input:hover {
+  background-color: white;
+  color: black;
+}

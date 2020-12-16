@@ -1,0 +1,23 @@
+.parent_eror {
+    max-width: 1170px;
+    padding-top: 30px;
+    margin: 0 auto;
+    text-align: center;
+  }
+  
+  .parent_eror #error img, .parent_eror #error a, .parent_eror #error div {
+    margin: 5px 0;
+    text-transform: uppercase;
+  }
+  .parent_eror #error h2{
+    text-transform: uppercase;
+  }
+  .parent_eror #error a {
+    display: inline-block;
+    text-decoration: none;
+    background-color: black;
+    padding: 10px 20px;
+    color: white;
+    text-transform: uppercase;
+    font-family: inherit;
+  }

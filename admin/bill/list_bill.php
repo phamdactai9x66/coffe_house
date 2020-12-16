@@ -41,8 +41,8 @@
                                         <td><img src="'.$image.'" alt=""></td>
                                         <td>'.number_format($total_money).'VND</td>
                                         <td>'.$time_post.'</td>
-                                        <td style="text-align: center;"><a href="?delete_bill&id_bill_1='.$id_bill.'" class="delete_element">xoa</a>
-                                         <a href="?detail_bill&id_bill_1='.$id_bill.'" class="edit_element">sua</a></td>
+                                        <td style="text-align: center;"><a href="?delete_bill&id_bill_1='.$id_bill.'" class="delete_element">remove</a>
+                                         <a href="?detail_bill&id_bill_1='.$id_bill.'" class="edit_element">detail_bill</a></td>
                                     </tr>';
                                     }
                                 ?>

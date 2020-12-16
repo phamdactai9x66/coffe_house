@@ -1,72 +1,76 @@
 <?php
 require("../../global.php");
 require_once("../../dao/user-kh.php");
+require_once '../../dao/regular_expression.php';
 extract($_REQUEST);
 
-echo "<pre>";
-print_r($_POST);
-echo "</pre>";
+
+
 
 // echo $IMAGE_DIR;
 if(isset($create_ac)){
-    if($passwrod != $check_match_Password){
-        echo "tai khoaon mat khau khong match";
-        $VIEW_NAME="account/create_ac.php";
-        require '../layout.php';
-    }
-    else if(find_username($username) > 0){
-        echo "ma nay da duoc su dung";
-        $VIEW_NAME="account/create_ac.php";
-        require '../layout.php';
-    }
-    else{//$name,$taiKhoan,$matkhau,$image,$vaitro,$kichhoat,$gmail
-        $up_image=save_file("upload_avatar",$document_root.$content_url."/admin/image/");
-    $check_image1= (strlen($up_image) < 0 ) ? "null_image" : $up_image;
-    
-    $user_name=htmlspecialchars($_POST["username"]);
+      $user_name=htmlspecialchars($_POST["username"]);
     $pass_word=htmlspecialchars($_POST["passwrod"]);
+    $check_pass_word=htmlspecialchars($_POST["check_match_Password"]);
     $full_name=htmlspecialchars($_POST["fullname"]);
     $email=htmlspecialchars($_POST["email"]);
     $address=htmlspecialchars($_POST["address"]);
     if(empty($user_name)){
-        $error[]="ban chua nhap vao name";
+        $error["username"]="username khong phu hop";
     }
     if(empty($pass_word)){
-        $error[]="ban chua nhap vao pass_word";
+        $error["pass_word"]="pass_word khong phu hop";
+    }
+    if(empty($check_pass_word)){
+        $error["check_match_Password"]="check_match_Password khong phu hop";
     }
     if(empty($full_name)){
-        $error[]="ban chua nhap vao full_name";
+        $error["full_name"]="full_name khong phu hop";
     }
     if(empty($email)){
-        $error[]="ban chua nhap vao email";
+        $error["email"]="email khong phu hop";
     }
     if(empty($address)){
-        $error[]="ban chua nhap vao address";
+        $error["address"]="address khong phu hop";
     }
-    if(empty($_POST["date"])){
-        $error[]="ban chua nhap vao date";
+    if(empty($date)){
+        $error["date"]="date khong phu hop";
+    }
+    if(!empty($_FILES["upload_avatar"]["type"])){
+        
+        if(!path_file($_FILES["upload_avatar"]["name"])){
+            $error["file"]="file khong dung dinh dang anh";
+        }else if(!size_file($_FILES["upload_avatar"]["size"])){
+            $error["file"]="file qua lon";
+        }
     }
     if(empty($error)){
-              //$username,$pass,$fullname,$email,$address,$image,$sex,$birth,$role ,$status ,$check_addmin 
-             
-              insert_user($user_name,$pass_word,$full_name,$email,$address,
-              $check_image1,$gender,$date,$_POST["role"] ,$_POST["status"] ,$_POST["check_admin"]);
-            //   echo "<pre>";
-            // print_r($_POST);
-            // echo "</pre>";
-              unset($_POST);
-              
-             
-              header("location: ".$client_url."/main_page/?account&login");
-              echo "thang cong";
-    }else{
-        $test=implode("<br />",$error);
-        echo $test;
-        $VIEW_NAME="account/create_ac.php";
-        require '../layout.php';
+        if(find_username($username) > 0){
+            $error["username"]="username da ton tai";
+        }else if($pass_word != $check_pass_word){
+            $error["pass_word"]="pass_word khong chung hop";
+            $error["check_match_Password"]="check_match_Password khong chung hop";
+        }else{
+            $up_image=save_file("upload_avatar",$document_root.$content_url."/admin/image/");
+            $check_image1= (strlen($up_image) < 0 ) ? "null_image" : $up_image;
+
+            insert_user($user_name,$pass_word,$full_name,$email,$address,
+            $check_image1,$gender,$date,$_POST["role"] ,$_POST["status"] ,$_POST["check_admin"]);
+          //   echo "<pre>";
+          // print_r($_POST);
+          // echo "</pre>";
+          $error["successfuly"]="successfuly";
+            unset($_POST);
+            
+           
+            // header("location: ".$client_url."/main_page/?account&login");
+           
+           
+        }
     }
+    $VIEW_NAME="account/create_ac.php";
+    require '../layout.php';
    
-    }
 }else{
     header("location: ".$client_url."/main_page/");
 }

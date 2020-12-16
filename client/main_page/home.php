@@ -81,6 +81,7 @@
         }else if(exist_param("searching_product")){
             if(isset($_POST["value_search"])){
                 $searching= searching_product($_POST["value_search"]);
+                
                 foreach($searching as $key => $value){
                     extract($value);
                     if($image == "img.png" or $image == "" ){
@@ -116,16 +117,17 @@
                    }else{
                        $image=$content_url_image_ad.$image;
                    }
-                $save_list.='  <li>
-                <a href="'.$client_url.'/product/?id_product='.$id_product.'">
-                 <img src="'.$image.'" alt="">
-                 <h2>'.$name_EN.'</h2>
-                 <p><label for="" style="text-decoration: line-through;color:rergb(212, 65, 65)d;">$'.$price.'</label> - 
-                 <label for="" class="count_money">$'.$price *  (float)$discount.'</label></p>
-               
-                </a>
-                <a href="'.$client_url.'/product/?id_product='.$id_product.'" id="hello">ADD TO CART</a>
-            </li>';
+                   $discount="0.".$discount."<br />";
+                   $save_list.='  <li>
+                   <a href="'.$client_url.'/product/?id_product='.$id_product.'">
+                    <img src="'.$image.'" alt="">
+                    <h2>'.$name_EN.'</h2>
+                    <p><label for="" style="text-decoration: line-through;color:rergb(212, 65, 65)d;">$'.$price.'</label> - 
+                    <label for="" class="count_money">$'.$price *  (float)$discount.'</label></p>
+                  
+                   </a>
+                   <a href="'.$client_url.'/product/?id_product='.$id_product.'" id="hello">ADD TO CART</a>
+               </li>';
             }
         }
        ?>

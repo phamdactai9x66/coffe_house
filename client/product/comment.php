@@ -12,32 +12,36 @@
                 // echo "</pre>";
                 
                 if(isset($_POST["post_comment"])){
-                    if(isset($_POST["content"])){
-                
-                   
-                        // echo " xin chao";
-                        // echo '<pre>';
-                        // print_r($_SESSION['user']);
-                        // echo "</pre>";
-                        // $ma_kh = $_SESSION['user']['taikhoan'];
-                        $ngay_bl = date_format(date_create(), 'Y-m-d-H-i-s');
-                       
-                       //$content,$id_product,$id_kh,$date
-                        if(!empty($_POST["content"])){
-                            insert_comment($_POST["content"],$_GET["id_product"], $_SESSION['user']["id_kh"], $ngay_bl);
-                            $list_comment=list_comment($_GET["id_product"]);
-                           
+                        if(strlen($_POST["content"]) < 10){
+                    
+                            echo "Do dai phai tren 10 ky tu";
+                            // echo " xin chao";
+                            // echo '<pre>';
+                            // print_r($_SESSION['user']);
+                            // echo "</pre>";
+                            // $ma_kh = $_SESSION['user']['taikhoan'];
+                        
+                            } 
+                        else if(!check_comment($_POST["content"]) ){
+                            echo "Nhap khong dung dinh dang email";
                         }else{
-                            echo "ban chua nhap vao comment";
+                            $ngay_bl = date_format(date_create(), 'Y-m-d-H-i-s');
+                        
+                            //$content,$id_product,$id_kh,$date
+                            if(!empty($_POST["content"])){
+                                insert_comment($_POST["content"],$_GET["id_product"], $_SESSION['user']["id_kh"], $ngay_bl);
+                                $list_comment=list_comment($_GET["id_product"]);
                             
-                        }
-                       
-                        
-                        
-                    }else{
-                        echo "ban chua nhap vao comment";
+                                
+                            }else{
+                                echo "ban chua nhap vao comment";
+                                
+                            }   
                     }
+                    
                 }
+                // echo $_POST["content"]."<br />";
+                // var_dump(check_comment($_POST["content"]));
               
                
                 // echo '<pre>';

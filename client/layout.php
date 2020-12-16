@@ -10,6 +10,8 @@
     <title>Home 6 &#8211; Craft | Cafes Coffee Shops Bars WordPress</title>
 </head>
 <body>
+
+
     <div class="search_full_screen" style="visibility: hidden;">
         <form action="<?=$client_url?>/main_page/?searching_product" method="post" class="form_search" >
                 <div>
@@ -24,7 +26,7 @@
     ?>
 
     <main>
-      
+
       <?php
             require $VIEW_NAME;
         ?>

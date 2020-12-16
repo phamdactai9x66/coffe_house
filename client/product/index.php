@@ -1,8 +1,9 @@
 <?php
 require_once("../../global.php");
-require("../../dao/product.php");
-require("../../dao/category.php");
-require("../../dao/comment.php");
+require_once("../../dao/product.php");
+require_once("../../dao/category.php");
+require_once("../../dao/comment.php");
+require_once("../../dao/regular_expression.php");
 date_default_timezone_set("Asia/Ho_Chi_Minh");
 extract($_REQUEST);
 // echo $id_product;
@@ -34,8 +35,10 @@ $VIEW_NAME="product/detail_product.php";
 require("../layout.php");
 
 }else{
-    header("location: ".$client_url."/main_page/");
-    exit();
+    $VIEW_NAME="product/error_product.php";
+    require("../layout.php");
+    // header("location: ".$client_url."/main_page/");
+    // exit();
 }
 
 

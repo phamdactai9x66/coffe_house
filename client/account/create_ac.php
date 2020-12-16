@@ -7,6 +7,13 @@
 </head>
 <body>
 <section id="parent-sevice">
+<?php
+    if(isset($error["successfuly"])){
+        echo '<div class="notifiled_successfuly">
+        <i class="fas fa-check-circle"></i> '.$error["successfuly"].'
+        </div>';
+    }
+    ?>
             <div id="flex-service">
                 <div class="box1">
                     <div class="text_lg">
@@ -25,16 +32,22 @@
                                     <img src="<?=$content_url_image_ad?>/user.png" alt=""><br>
                                     <input type="file" name="upload_avatar">
                                 </div>
+                                <div class="notifiled_error"><?php if(isset($error["file"] )){echo $error["file"];}?></div>
                                 <p>fullname</p>
                                 <input type="text" name="fullname">
+                                <div class="notifiled_error"><?php if(isset($error["full_name"] )){echo $error["full_name"];}?></div>
                                 <p>Username</p>
                                 <input type="text" name="username">
+                                <div class="notifiled_error"><?php if(isset($error["username"] )){echo $error["username"];}?></div>
                                 <p>Password</p>
                                 <input type="password" name="passwrod">
+                                <div class="notifiled_error"><?php if(isset($error["pass_word"] )){echo $error["pass_word"];}?></div>
                                 <p>check_match_Password</p>
                                 <input type="password" name="check_match_Password">
+                                <div class="notifiled_error"><?php if(isset($error["check_match_Password"] )){echo $error["check_match_Password"];}?></div>
                                 <p>Your Email</p>
                                 <input type="email" name="email">
+                                <div class="notifiled_error"><?php if(isset($error["email"] )){echo $error["email"];}?></div>
                                 <div class="table">
                                     <div class="birthday">
                                         <p>Birthday</p>
@@ -42,6 +55,10 @@
                                     </div>
                                    
                                 </div>
+                                <div class="notifiled_error"><?php if(isset($error["date"] )){echo $error["date"];}?></div>
+                                <p>Address</p>
+                                <input type="text" name="address">
+                                <div class="notifiled_error"><?php if(isset($error["address"] )){echo $error["address"];}?></div>
                                 <div class="gender">
                                         <p>Gender</p>
                                        <div class="flex_gender">
@@ -60,8 +77,7 @@
                                        </div>
                                     </div>
                                 
-                                <p>Address</p>
-                                <input type="text" name="address">
+                               
                         </div>
                         <input type="hidden" name="role"  value="0">
                         <input type="hidden" name="status"  value="1">

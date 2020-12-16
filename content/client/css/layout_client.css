@@ -85,7 +85,36 @@ li {
   opacity: 1;
   top: 100%;
 }
+#count_bill{
+  position: relative;
 
+}
+/* notifiled error */
+.error_table{
+  border: 0;
+}
+.error_table td{
+  padding: 0;
+  padding-left: 20px;
+}
+.notifiled_error{
+  color: rgba(255, 0, 0, 0.808);
+  font-size: 0.7rem;
+  text-transform: uppercase;
+}
+#count_bill > div{
+  position: absolute;
+  top: -7px;
+  left: 7px;
+  background-color: rgba(255, 0, 0, 0.856);
+  border-radius: 100%;
+  width:15px;
+  height: 15px;
+  /* padding: 1.5px 6px; */
+  text-align: center;
+  font-size: 10px;
+  color: white;
+}
 #parent_account .acount_for_user {
   visibility: hidden;
   opacity: 0;
@@ -308,6 +337,7 @@ li {
   -webkit-transform: translateY(20px);
           transform: translateY(20px);
   z-index: 0;
+  z-index: 1000;
 }
 
 .top-header .flex-top-header .box3 .menu_home11 .menu-home .category {

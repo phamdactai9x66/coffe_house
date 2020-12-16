@@ -11,14 +11,15 @@ if(isset($post_username)){
     $taikhoan_user=htmlspecialchars($username);
     $email_user=htmlspecialchars($email1);
     if(empty($taikhoan_user)){
-        $error[]="ban chua nhap vao username";
+        $error["username"]='<i class="fas fa-exclamation"></i> user khong duoc null';
+        
     }
     if(empty($email_user)){
-        $error[]="ban chua nhap vao email";
+        $error["email"]='<i class="fas fa-exclamation"></i> email khong duoc null';
     }
     if(empty($error)){
-            $user=find_username($username);
-            if(!empty($user)){
+            $user=find_username($taikhoan_user);
+            if($user){
                 // echo "<pre>";
                 // print_r($user);
                 // echo "</pre>";
@@ -57,16 +58,14 @@ if(isset($post_username)){
                 } catch (Exception $e) {
                     echo 'Caught exception: '. $e->getMessage() ."\n";
                 }
-                echo "check password inside email";
+              
+                $error["successfuly"]="check password inside email";
                 unset($_POST);
                 
             }else{
-                echo "tai khoan chua ton tai";
+                $error["username"]="user khong ton tai";
             }
        
-    }else{
-        $test=implode("<br />",$error);
-        echo $test;
     }
 
 }
@@ -80,7 +79,16 @@ if(isset($post_username)){
     <link rel="stylesheet" href="<?=$content_url?>/client/css/forgot_pass.css" class="css">
 </head>
 <body>
+   
 <section class="main-center">
+    <?php
+    if(isset($error["successfuly"])){
+        echo '<div class="notifiled_successfuly">
+        <i class="fas fa-check-circle"></i> '.$error["successfuly"].'
+        </div>';
+    }
+    ?>
+    
             <div class="list_detail_bill">
                 <form action="" method="post">
                     <table>
@@ -99,6 +107,9 @@ if(isset($post_username)){
                                 <td></td>
                                 <td></td>
                             </tr>
+                            <tr class="error_table">
+                                <td>   <div class="notifiled_error"><?php if(isset($error["username"] )){echo $error["username"];}?></div></td>
+                            </tr>
                             <tr>
                                 <td><label for="22">Email:</label></td>
                                 <td><input class="ip" type="email" id="22" name="email1" placeholder="..."></td>
@@ -106,7 +117,10 @@ if(isset($post_username)){
                                 </td>
                                 <td></td>
                                 <td></td>
-                                <td></i></td>
+                                <td></td>
+                            </tr>
+                            <tr class="error_table">
+                                <td>   <div class="notifiled_error"><?php if(isset($error["email"] )){echo $error["email"];}?></div></td>
                             </tr>
                         </tbody>
                         <tfoot>

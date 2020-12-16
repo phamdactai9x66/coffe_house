@@ -157,7 +157,28 @@ i {
   border-radius: 4px;
   z-index: 2000;
 }
+#count_bill{
+  position: relative;
 
+}
+#count_bill > div{
+  position: absolute;
+  top: -7px;
+  right: -7px;
+  background-color: rgba(255, 0, 0, 0.856);
+  border-radius: 100%;
+  width:15px;
+  height: 15px;
+  /* padding: 1.5px 6px; */
+  padding: 0;
+  margin: 0;
+  
+  font-size: 10px;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 #parent_account .acount_for_user li {
   padding: 0.5em 0.4em;
   -webkit-transition: all 0.1s ease-in-out;
@@ -561,6 +582,8 @@ i {
   font-weight: 600;
   color: #000;
   text-transform: uppercase;
+  padding: 10px 0;
+  display: inline-block;
 }
 
 .parent-filex2 .filex .border-filex .filex-content-bottom .first_child_bottom li a i {

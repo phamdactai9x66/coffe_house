@@ -39,7 +39,7 @@
                                         <td>'.$quantily.'</td>
                                         <td>'.number_format($prict).'VND</td>
                                        
-                                        <td style="text-align: center;"><a href="?delete_bill_part2&id_product_bill='.$id_detail_bill.'&id_bill_1='.$id_bill.'" class="delete_element">xoa</a></td>
+                                        <td style="text-align: center;"><a href="?delete_bill_part2&id_product_bill='.$id_detail_bill.'&id_bill_1='.$id_bill.'" class="delete_element">remove</a></td>
                                     </tr>';
                                     }
                                 ?>

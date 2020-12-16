@@ -21,6 +21,18 @@ require_once("function_pdo.php");
         VALUES (?,?,?)";
         return execute_pdo($sql,$id_user,$total_money,$time);
     }
+    function count_bill_cart($id_user){
+        $sql="select COUNT(id_bill) FROM bill
+        WHERE id_user =?";
+        return select_value($sql,$id_user);
+    }
+    function update_bill($total_money,$id_bill){
+        $sql="UPDATE bill
+        SET total_money =?
+        WHERE id_bill =?";
+        execute_pdo($sql,$total_money,$id_bill);
+    }
+    
     // function count_bill(){
     //     $sql="SELECT COUNT(id_bill) FROM bill";
     //     return select_value($sql);

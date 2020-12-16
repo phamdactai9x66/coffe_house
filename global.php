@@ -50,13 +50,4 @@
     function get_cookie($name){
         return $_COOKIE[$name]??'';
     }
-    // delete_cookie("asdas");
-    // get_cookie("xin chao");
-    
-    // delete_cookie("new_value");
-
-    // var_dump(get_cookie("new_value"));
-    // echo "<pre>";
-    // print_r($_COOKIE);
-    // echo "</pre>";
-    
+  

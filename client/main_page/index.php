@@ -1,5 +1,6 @@
 <?php
 require_once("../../global.php");
+require_once("../../dao/regular_expression.php");
 require 'vendor/autoload.php';
 // echo "<pre>";
 // print_r($_COOKIE);

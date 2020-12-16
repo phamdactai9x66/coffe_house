@@ -52,19 +52,24 @@
         execute_pdo($sql,$id_product);
     }
     function hang_hoa_sildeshow(){
-        $next_page=7;//so trang se duoc hien thi
+        $next_page=7;
+        //so luong san pham hien thi trong 1 thuoi diem
         $count_table=select_value("SELECT COUNT(id_product) FROM `product`");
- 
-        $tong_hientai= ceil($count_table / $next_page);
-     //    echo $_POST["current_page"];
+        //so luong san pham co tronh table DB
+        $tong_hientai= ceil($count_table / $next_page);//3 2 = 1.9
+        //
+     
          $trang_hientai=(exist_param("current_page")) ? $_REQUEST["current_page"] : 0;
+         //hien thi trang hien tai tren url
  
          if($trang_hientai < 0){
              $trang_hientai =0;}
          if($trang_hientai > $tong_hientai -1){
              $trang_hientai = $tong_hientai -1;}
- 
-         $start= $trang_hientai * $next_page;
+             //
+
+         $start= $trang_hientai * $next_page;//0 * 7 0
+         //7 7
          $sql="SELECT * FROM `product`  LIMIT {$start},{$next_page}";
  
         $_SESSION["tong_trang"]=$tong_hientai;

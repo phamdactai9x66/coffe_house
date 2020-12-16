@@ -2,7 +2,7 @@
 require_once("../../global.php");
 require_once("../../dao/category.php");
 require_once("../../dao/product.php");
-
+require_once("../../dao/bill.php");
 $list_cate=list_cate();
 ?>
 <!DOCTYPE html>
@@ -24,7 +24,7 @@ $list_cate=list_cate();
     
     <!-- \style="display: none;" -->
     <div class="search_full_screen" style="visibility: hidden;">
-        <form action="<?=$url_clien?>/main_page/?searching_product" method="post" class="form_search" >
+        <form action="<?=$client_url?>/main_page/?searching_product" method="post" class="form_search" >
                 <div>
                         <input type="text" name="value_search" id="" placeholder="Searching product">
                         <button name="butom"><i class="fas fa-search"></i></button>
@@ -62,9 +62,16 @@ $list_cate=list_cate();
                                          ?>
                                 </ul>
                             </div>
-                          
+                            <a href="<?=$client_url?>/main_page/?account&history_cart" id="count_bill"><i class="fas fa-shopping-cart"></i>
+                            <?php
+                            if(isset($_SESSION["user"])){
+                             
+                               echo '<div>'.count_bill_cart($_SESSION["user"]["id_kh"]).'</div>';
+                            }
+                            ?>
+                        </a>
                             <a href="#"> <i class="fab fa-facebook"></i></a>
-                       <a href="#"> <i class="fab fa-instagram-square"></i></a>
+                         
                           
                         </div>
                         <a href="#">234.567.3455</a>
@@ -185,70 +192,80 @@ $list_cate=list_cate();
                     <div class="first_child_bottom">
                         <ul>
                             <li><a href="<?=$client_url?>/main_page/main_home.php">home</a></li>
-                            <li class="menu_home11" ><label class="menu_child">menu</label>
+                            <li class="menu_home11"><a href="#">menu</a><i class="fas fa-angle-down"></i>
                                 <div class="menu-home"> 
                                   
                                     <div class="category">
                                       
                                        <div class="parent_1">
                                         <div class="row">
-                                            <header>home site</header>
+                                            <header><?=$list_cate[0]["name_EN"]?></header>
+                                            
                                             <ul class="link_row">
-                                            <li>
-                                                    <img src="<?=$content_url_image_client?>58db701349cb48738069e8c912e2b3ac_result-150x150.jpg" alt="">
-                                                    <h2>cafe americano ... <span>$9</span><span>$9</span>
-                                                        <label class="font_size_text">the content it under</label></h2>
-                                                </li>
+                                            <?php
+                                            $product=find_product_equal_id_cate($list_cate[0]["id_cate"]);
+                                            $i=0;
+                                            foreach($product as $key => $value){
+                                                extract($value);
+                                                $i++;
+                                                echo ' 
                                                 <li>
-                                                    <img src="<?=$content_url_image_client?>58db701349cb48738069e8c912e2b3ac_result-150x150.jpg" alt="">
-                                                    <h2>cafe americano ... <span>$9</span><span>$9</span>
-                                                        <label class="font_size_text">the content it under</label></h2>
+                                                <img src="'.$content_url_image_ad.$image.'" alt="">
+                                                <h2>'.$name_EN.' ... <span>$'.number_format($price).'</span>
+                                                    <label class="font_size_text">the content it under</label></h2>
                                                 </li>
-                                                <li>
-                                                    <img src="<?=$content_url_image_client?>58db701349cb48738069e8c912e2b3ac_result-150x150.jpg" alt="">
-                                                    <h2>cafe americano ... <span>$9</span><span>$9</span>
-                                                        <label class="font_size_text">the content it under</label></h2>
-                                                </li>
+                                                ';
+                                                if($i >= 3){
+                                                break;
+                                                }
+                                            }
+                                            ?>
                                             </ul>
                                         </div>
                                             <div class="row">
-                                                <header>home site</header>
+                                                <header><?=$list_cate[1]["name_EN"]?></header>
                                                 <ul class="link_row">
-                                            <li>
-                                                    <img src="<?=$content_url_image_client?>58db701349cb48738069e8c912e2b3ac_result-150x150.jpg" alt="">
-                                                    <h2>cafe americano ... <span>$9</span><span>$9</span>
-                                                        <label class="font_size_text">the content it under</label></h2>
-                                                </li>
+                                                <?php
+                                            $product=find_product_equal_id_cate($list_cate[1]["id_cate"]);
+                                            $i=0;
+                                            foreach($product as $key => $value){
+                                                extract($value);
+                                                $i++;
+                                                echo ' 
                                                 <li>
-                                                    <img src="<?=$content_url_image_client?>58db701349cb48738069e8c912e2b3ac_result-150x150.jpg" alt="">
-                                                    <h2>cafe americano ... <span>$9</span><span>$9</span>
-                                                        <label class="font_size_text">the content it under</label></h2>
+                                                <img src="'.$content_url_image_ad.$image.'" alt="">
+                                                <h2>'.$name_EN.' ... <span>$'.number_format($price).'</span>
+                                                    <label class="font_size_text">the content it under</label></h2>
                                                 </li>
-                                                <li>
-                                                    <img src="<?=$content_url_image_client?>58db701349cb48738069e8c912e2b3ac_result-150x150.jpg" alt="">
-                                                    <h2>cafe americano ... <span>$9</span><span>$9</span>
-                                                        <label class="font_size_text">the content it under</label></h2>
-                                                </li>
+                                                ';
+                                                if($i >= 3){
+                                                break;
+                                                }
+                                            }
+                                            ?>
                                             </ul>
                                             </div>
                                             <div class="row">
-                                                <header>home site</header>
+                                                <header><?=$list_cate[2]["name_EN"]?></header>
                                                 <ul class="link_row">
-                                            <li>
-                                                    <img src="<?=$content_url_image_client?>58db701349cb48738069e8c912e2b3ac_result-150x150.jpg" alt="">
-                                                    <h2>cafe americano ... <span>$9</span><span>$9</span>
-                                                        <label class="font_size_text">the content it under</label></h2>
-                                                </li>
+                                                <?php
+                                            $product=find_product_equal_id_cate($list_cate[2]["id_cate"]);
+                                            $i=0;
+                                            foreach($product as $key => $value){
+                                                extract($value);
+                                                $i++;
+                                                echo ' 
                                                 <li>
-                                                    <img src="<?=$content_url_image_client?>58db701349cb48738069e8c912e2b3ac_result-150x150.jpg" alt="">
-                                                    <h2>cafe americano ... <span>$9</span><span>$9</span>
-                                                        <label class="font_size_text">the content it under</label></h2>
+                                                <img src="'.$content_url_image_ad.$image.'" alt="">
+                                                <h2>'.$name_EN.' ... <span>$'.number_format($price).'</span>
+                                                    <label class="font_size_text">the content it under</label></h2>
                                                 </li>
-                                                <li>
-                                                    <img src="<?=$content_url_image_client?>58db701349cb48738069e8c912e2b3ac_result-150x150.jpg" alt="">
-                                                    <h2>cafe americano ... <span>$9</span><span>$9</span>
-                                                        <label class="font_size_text">the content it under</label></h2>
-                                                </li>
+                                                ';
+                                                if($i >= 3){
+                                                break;
+                                                }
+                                            }
+                                            ?>
                                             </ul>
                                             </div>
                                             

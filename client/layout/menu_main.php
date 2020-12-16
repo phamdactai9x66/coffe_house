@@ -1,11 +1,19 @@
 <?php
+require_once '../../global.php';
 require_once("../../dao/category.php");
 require_once("../../dao/product.php");
-
+require_once("../../dao/bill.php");
 $list_cate=list_cate();
+// echo "<pre>";
+// print_r($_COOKIE);
+// echo "</pre>";
+// echo "<pre>";
+// print_r($_SESSION["user"]["id_kh"]);
+// echo "</pre>";
 
 
 ?>
+
 <section class="top-header">
             <div class="flex-top-header">
                     <div class="box1 genaral"><a href="<?=$client_url?>/main_page/main_home.php"><img src="<?=$content_url_image_client?>logo-e1592989828631.png" alt=""></a></div>
@@ -125,7 +133,16 @@ $list_cate=list_cate();
                                         
                                 </ul>
                         </div>
-                        <a href="<?=$client_url?>/main_page/?account&history_cart"><i class="fas fa-shopping-cart"></i></a>
+                        <a href="<?=$client_url?>/main_page/?account&history_cart" id="count_bill"><i class="fas fa-shopping-cart"></i>
+                      
+                            <?php
+                            if(isset($_SESSION["user"])){
+                             
+                               echo '<div>'.count_bill_cart($_SESSION["user"]["id_kh"]).'</div>';
+                            }
+                            ?>
+                       
+                        </a>
                         <a href="#"> <i class="fab fa-facebook"></i></a>
                        
                         <div class="searching_form"><i class="fas fa-search"></i></div>
